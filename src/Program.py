@@ -5,10 +5,10 @@ from tkinter import messagebox
 
 class MyGui:
     def __init__(self, master): # master is the 'main' window in this case, passed in as root
-        cardlist_F = Frame(master, bg='red') # define frame in the main window (normally root, but is now master)
-        cardlist_F.grid(row=0, column=0, rowspan=3, sticky=NSEW)    # add the frame to the menu
-        cardimage_F = Frame(master, bg='blue')  # define a second frame in the main window(master)
-        cardimage_F.grid(row=0, column=1, columnspan=2)  # add second menu to window
+        cardlist_F = Frame(master, bg='red')  # define frame in the main window (normally root, but is now master)
+        cardlist_F.grid(row=0, column=0, rowspan=3, sticky=NSEW)
+        cardimage_F = Frame(master, bg='blue')
+        cardimage_F.grid(row=0, column=1, columnspan=2)
         carddatalabels_F = Frame(master, bg='purple')
         carddatalabels_F.grid(row=1, column=1)
         carddata_F = Frame(master, bg='yellow')
@@ -165,16 +165,9 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
+    root.geometry("450x450")
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
 
 if __name__ == "__main__":  # allows program to be imported as a module by not automatically running
     main()
-
-'''
-
-root = Tk()
-
-root.mainloop()
-
-'''
