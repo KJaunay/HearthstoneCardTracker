@@ -6,10 +6,22 @@ from bs4 import BeautifulSoup
 cardlist = {}
 
 def getdescriptionandpicture():
-    #thead > tbody > tr = CARD
-    #CARD > td class=visual-image-cell = IMG
-    #CARD > td class=visual-details-cell > h3 = CARDTITLE
-    #CARD > td class=visual-details-cell > p = CARD DESCRIPTION
+    # thead > tbody > tr = CARD
+    # CARD > td class=visual-image-cell = IMG
+    # CARD > td class=visual-details-cell > h3 = CARDTITLE
+    # CARD > td class=visual-details-cell > p = CARD DESCRIPTION
+
+    # Change data grabber into one method, and then have two other methods for processing the data
+
+    for page in range(1,10):
+        data = {}
+        data['display']=2
+        data['page']=page
+        url_values = urllib.parse.urlencode(data)
+        url = 'http://www.hearthpwn.com/cards'
+        full_url = url + '?' + url_values
+        data = urllib.request.urlopen(full_url)
+        respData = data.read()
 
 def serialisecarddata():
 
