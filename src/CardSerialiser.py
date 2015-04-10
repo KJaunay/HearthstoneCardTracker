@@ -56,3 +56,9 @@ def serialiseCards():
         print(str(e))
 
     print('Done!!')
+
+def main():
+    serialiseCards()
+
+if __name__ == '__main__':
+    main()

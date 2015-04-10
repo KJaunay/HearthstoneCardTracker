@@ -1,4 +1,11 @@
 {
+    "Aberration": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "health": "1",
+        "type": "Minion"
+    },
     "Abomination": {
         "attack": "4",
         "class": "",
@@ -26,6 +33,41 @@
         "cost": "3",
         "health": "3",
         "type": "Minion"
+    },
+    "Activate Arcanotron": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Activate Electron": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Activate Magmatron": {
+        "attack": "0",
+        "class": "",
+        "cost": "6",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Activate Toxitron": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Activate!": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Al'Akir the Windlord": {
         "attack": "3",
@@ -132,13 +174,6 @@
         "health": "5",
         "type": "Minion"
     },
-    "Anduin Wrynn": {
-        "attack": "0",
-        "class": "Priest",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
-    },
     "Angry Chicken": {
         "attack": "1",
         "class": "",
@@ -180,13 +215,6 @@
         "cost": "5",
         "health": "3",
         "type": "Minion"
-    },
-    "Anub'Rekhan": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
     },
     "Anub'ar Ambusher": {
         "attack": "5",
@@ -250,6 +278,13 @@
         "cost": "5",
         "health": "2",
         "type": "Weapon"
+    },
+    "Arcanotron": {
+        "attack": "2",
+        "class": "",
+        "cost": "0",
+        "health": "2",
+        "type": "Minion"
     },
     "Archmage": {
         "attack": "4",
@@ -363,6 +398,13 @@
         "health": "0",
         "type": "Ability"
     },
+    "Axe Flinger": {
+        "attack": "2",
+        "class": "Warrior",
+        "cost": "4",
+        "health": "5",
+        "type": "Minion"
+    },
     "Azure Drake": {
         "attack": "4",
         "class": "",
@@ -406,11 +448,11 @@
         "type": "Minion"
     },
     "Baron Rivendare": {
-        "attack": "0",
+        "attack": "1",
         "class": "",
-        "cost": "0",
-        "health": "14",
-        "type": "Hero"
+        "cost": "4",
+        "health": "7",
+        "type": "Minion"
     },
     "Barrel": {
         "attack": "0",
@@ -474,6 +516,27 @@
         "cost": "4",
         "health": "0",
         "type": "Ability"
+    },
+    "Black Whelp": {
+        "attack": "2",
+        "class": "",
+        "cost": "1",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Blackwing": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Blackwing Technician": {
+        "attack": "2",
+        "class": "",
+        "cost": "3",
+        "health": "4",
+        "type": "Minion"
     },
     "Blade Flurry": {
         "attack": "0",
@@ -608,6 +671,20 @@
         "health": "3",
         "type": "Minion"
     },
+    "Bone Construct": {
+        "attack": "4",
+        "class": "",
+        "cost": "1",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Bone Minions": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Boom Bot": {
         "attack": "1",
         "class": "",
@@ -650,12 +727,61 @@
         "health": "4",
         "type": "Minion"
     },
+    "Brood Affliction": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Brood Affliction: Black": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Brood Affliction: Blue": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Brood Affliction: Bronze": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Brood Affliction: Green": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Brood Affliction: Red": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
     "Burly Rockjaw Trogg": {
         "attack": "3",
         "class": "",
         "cost": "4",
         "health": "5",
         "type": "Minion"
+    },
+    "Burning Adrenaline": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Ability"
     },
     "Burrowing Mine": {
         "attack": "0",
@@ -739,6 +865,34 @@
         "class": "",
         "cost": "4",
         "health": "5",
+        "type": "Minion"
+    },
+    "Chromatic Dragonkin": {
+        "attack": "2",
+        "class": "",
+        "cost": "2",
+        "health": "3",
+        "type": "Minion"
+    },
+    "Chromatic Drake": {
+        "attack": "7",
+        "class": "",
+        "cost": "4",
+        "health": "7",
+        "type": "Minion"
+    },
+    "Chromatic Mutation": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Chromatic Prototype": {
+        "attack": "1",
+        "class": "",
+        "cost": "2",
+        "health": "4",
         "type": "Minion"
     },
     "Circle of Healing": {
@@ -867,6 +1021,13 @@
         "health": "5",
         "type": "Minion"
     },
+    "Corrupted Egg": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "3",
+        "type": "Minion"
+    },
     "Corruption": {
         "attack": "0",
         "class": "Warlock",
@@ -930,6 +1091,20 @@
         "health": "2",
         "type": "Minion"
     },
+    "DIE, INSECT!": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Ability"
+    },
+    "DIE, INSECTS!": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Dagger Mastery": {
         "attack": "0",
         "class": "Rogue",
@@ -965,11 +1140,25 @@
         "health": "4",
         "type": "Minion"
     },
+    "Dark Iron Bouncer": {
+        "attack": "4",
+        "class": "",
+        "cost": "6",
+        "health": "8",
+        "type": "Minion"
+    },
     "Dark Iron Dwarf": {
         "attack": "4",
         "class": "",
         "cost": "4",
         "health": "4",
+        "type": "Minion"
+    },
+    "Dark Iron Spectator": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "health": "1",
         "type": "Minion"
     },
     "Dark Wispers": {
@@ -1119,6 +1308,13 @@
         "health": "2",
         "type": "Minion"
     },
+    "Dismount": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Dispel": {
         "attack": "0",
         "class": "Druid",
@@ -1168,6 +1364,13 @@
         "health": "7",
         "type": "Minion"
     },
+    "Dragonkin": {
+        "attack": "3",
+        "class": "",
+        "cost": "1",
+        "health": "1",
+        "type": "Minion"
+    },
     "Dragonling Mechanic": {
         "attack": "2",
         "class": "",
@@ -1175,10 +1378,24 @@
         "health": "4",
         "type": "Minion"
     },
+    "Dragonteeth": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "6",
+        "type": "Weapon"
+    },
     "Drain Life": {
         "attack": "0",
         "class": "Warlock",
         "cost": "3",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Drakkisath's Command": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
         "health": "0",
         "type": "Ability"
     },
@@ -1215,6 +1432,13 @@
         "class": "Druid",
         "cost": "5",
         "health": "7",
+        "type": "Minion"
+    },
+    "Druid of the Flame": {
+        "attack": "2",
+        "class": "Druid",
+        "cost": "3",
+        "health": "5",
         "type": "Minion"
     },
     "Dual Warglaives": {
@@ -1287,11 +1511,25 @@
         "health": "2",
         "type": "Minion"
     },
+    "Echolocate": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Edwin VanCleef": {
         "attack": "2",
         "class": "Rogue",
         "cost": "3",
         "health": "2",
+        "type": "Minion"
+    },
+    "Electron": {
+        "attack": "6",
+        "class": "",
+        "cost": "3",
+        "health": "6",
         "type": "Minion"
     },
     "Elite Tauren Chieftain": {
@@ -1336,6 +1574,13 @@
         "health": "3",
         "type": "Minion"
     },
+    "Emperor Thaurissan": {
+        "attack": "5",
+        "class": "",
+        "cost": "6",
+        "health": "5",
+        "type": "Minion"
+    },
     "Enhance-o Mechano": {
         "attack": "3",
         "class": "",
@@ -1358,6 +1603,13 @@
         "type": "Ability"
     },
     "Eruption": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Essence of the Red": {
         "attack": "0",
         "class": "",
         "cost": "0",
@@ -1532,6 +1784,13 @@
         "health": "5",
         "type": "Minion"
     },
+    "Fire Hawk Form": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "0",
+        "health": "0",
+        "type": "Ability"
+    },
     "Fireball": {
         "attack": "0",
         "class": "Mage",
@@ -1545,6 +1804,20 @@
         "cost": "2",
         "health": "0",
         "type": "Hero Power"
+    },
+    "Firecat Form": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "0",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Firesworn": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "5",
+        "type": "Minion"
     },
     "Flame Burst": {
         "attack": "0",
@@ -1581,6 +1854,13 @@
         "health": "0",
         "type": "Ability"
     },
+    "Flameheart": {
+        "attack": "0",
+        "class": "",
+        "cost": "3",
+        "health": "0",
+        "type": "Ability"
+    },
     "Flames of Azzinoth": {
         "attack": "0",
         "class": "",
@@ -1598,6 +1878,13 @@
     "Flametongue Totem": {
         "attack": "0",
         "class": "Shaman",
+        "cost": "2",
+        "health": "3",
+        "type": "Minion"
+    },
+    "Flamewaker Acolyte": {
+        "attack": "3",
+        "class": "",
         "cost": "2",
         "health": "3",
         "type": "Minion"
@@ -1763,12 +2050,12 @@
         "health": "0",
         "type": "Ability"
     },
-    "Garrosh Hellscream": {
+    "Gang Up": {
         "attack": "0",
-        "class": "Warrior",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
+        "class": "Rogue",
+        "cost": "2",
+        "health": "0",
+        "type": "Ability"
     },
     "Gazlowe": {
         "attack": "3",
@@ -1783,6 +2070,13 @@
         "cost": "6",
         "health": "6",
         "type": "Minion"
+    },
+    "Get 'em!": {
+        "attack": "0",
+        "class": "",
+        "cost": "3",
+        "health": "0",
+        "type": "Ability"
     },
     "Gift of Cards": {
         "attack": "0",
@@ -1818,13 +2112,6 @@
         "cost": "2",
         "health": "2",
         "type": "Weapon"
-    },
-    "Gluth": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
     },
     "Gnoll": {
         "attack": "1",
@@ -1889,19 +2176,12 @@
         "health": "1",
         "type": "Weapon"
     },
-    "Gothik the Harvester": {
-        "attack": "0",
+    "Grim Patron": {
+        "attack": "3",
         "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
-    },
-    "Grand Widow Faerlina": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
+        "cost": "5",
+        "health": "3",
+        "type": "Minion"
     },
     "Grimscale Oracle": {
         "attack": "1",
@@ -1909,13 +2189,6 @@
         "cost": "1",
         "health": "1",
         "type": "Minion"
-    },
-    "Grobbulus": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
     },
     "Grommash Hellscream": {
         "attack": "4",
@@ -1952,18 +2225,25 @@
         "health": "6",
         "type": "Minion"
     },
-    "Gul'dan": {
-        "attack": "0",
-        "class": "Warlock",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
-    },
     "Gurubashi Berserker": {
         "attack": "2",
         "class": "",
         "cost": "5",
         "health": "7",
+        "type": "Minion"
+    },
+    "Guzzler": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Gyth": {
+        "attack": "8",
+        "class": "",
+        "cost": "3",
+        "health": "4",
         "type": "Minion"
     },
     "Hammer of Wrath": {
@@ -2043,13 +2323,6 @@
         "health": "3",
         "type": "Weapon"
     },
-    "Heigan the Unclean": {
-        "attack": "0",
-        "class": "Warlock",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
-    },
     "Hellfire": {
         "attack": "0",
         "class": "Warlock",
@@ -2058,11 +2331,11 @@
         "type": "Ability"
     },
     "Hemet Nesingwary": {
-        "attack": "0",
-        "class": "Hunter",
-        "cost": "0",
-        "health": "20",
-        "type": "Hero"
+        "attack": "6",
+        "class": "",
+        "cost": "5",
+        "health": "3",
+        "type": "Minion"
     },
     "Heroic Strike": {
         "attack": "0",
@@ -2093,11 +2366,11 @@
         "type": "Minion"
     },
     "Hogger": {
-        "attack": "0",
+        "attack": "4",
         "class": "",
-        "cost": "0",
-        "health": "10",
-        "type": "Hero"
+        "cost": "6",
+        "health": "4",
+        "type": "Minion"
     },
     "Hogger SMASH!": {
         "attack": "0",
@@ -2239,12 +2512,19 @@
         "health": "0",
         "type": "Ability"
     },
-    "Illidan Stormrage": {
+    "Ignite Mana": {
         "attack": "0",
-        "class": "Hunter",
+        "class": "",
         "cost": "0",
-        "health": "30",
-        "type": "Hero"
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Illidan Stormrage": {
+        "attack": "7",
+        "class": "",
+        "cost": "6",
+        "health": "5",
+        "type": "Minion"
     },
     "Illuminator": {
         "attack": "2",
@@ -2258,6 +2538,13 @@
         "class": "Warlock",
         "cost": "1",
         "health": "1",
+        "type": "Minion"
+    },
+    "Imp Gang Boss": {
+        "attack": "2",
+        "class": "Warlock",
+        "cost": "3",
+        "health": "4",
         "type": "Minion"
     },
     "Imp Master": {
@@ -2309,12 +2596,12 @@
         "health": "0",
         "type": "Ability"
     },
-    "Instructor Razuvious": {
+    "Intense Gaze": {
         "attack": "0",
         "class": "",
         "cost": "0",
-        "health": "55",
-        "type": "Hero"
+        "health": "0",
+        "type": "Hero Power"
     },
     "Iron Juggernaut": {
         "attack": "6",
@@ -2358,19 +2645,19 @@
         "health": "3",
         "type": "Minion"
     },
-    "Jaina Proudmoore": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
-    },
     "Jaws": {
         "attack": "3",
         "class": "",
         "cost": "1",
         "health": "5",
         "type": "Weapon"
+    },
+    "Jeering Crowd": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Jeeves": {
         "attack": "1",
@@ -2401,11 +2688,11 @@
         "type": "Minion"
     },
     "Kel'Thuzad": {
-        "attack": "0",
+        "attack": "6",
         "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
+        "cost": "8",
+        "health": "8",
+        "type": "Minion"
     },
     "Kezan Mystic": {
         "attack": "4",
@@ -2436,11 +2723,11 @@
         "type": "Minion"
     },
     "King Mukla": {
-        "attack": "0",
+        "attack": "5",
         "class": "",
-        "cost": "0",
-        "health": "26",
-        "type": "Hero"
+        "cost": "3",
+        "health": "5",
+        "type": "Minion"
     },
     "King of Beasts": {
         "attack": "2",
@@ -2477,6 +2764,13 @@
         "health": "3",
         "type": "Minion"
     },
+    "LAVA!": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Ability"
+    },
     "Lady Blaumeux": {
         "attack": "2",
         "class": "",
@@ -2495,6 +2789,13 @@
         "attack": "0",
         "class": "Shaman",
         "cost": "3",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Lava Shock": {
+        "attack": "0",
+        "class": "Shaman",
+        "cost": "2",
         "health": "0",
         "type": "Ability"
     },
@@ -2617,12 +2918,26 @@
         "health": "3",
         "type": "Minion"
     },
-    "Loatheb": {
+    "Living Bomb": {
         "attack": "0",
         "class": "",
+        "cost": "3",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Living Lava": {
+        "attack": "6",
+        "class": "",
         "cost": "0",
-        "health": "99",
-        "type": "Hero"
+        "health": "6",
+        "type": "Minion"
+    },
+    "Loatheb": {
+        "attack": "5",
+        "class": "",
+        "cost": "5",
+        "health": "5",
+        "type": "Minion"
     },
     "Locust Swarm": {
         "attack": "0",
@@ -2639,11 +2954,11 @@
         "type": "Minion"
     },
     "Lord Jaraxxus": {
-        "attack": "0",
+        "attack": "3",
         "class": "Warlock",
-        "cost": "0",
+        "cost": "9",
         "health": "15",
-        "type": "Hero"
+        "type": "Minion"
     },
     "Lord of the Arena": {
         "attack": "6",
@@ -2655,9 +2970,9 @@
     "Lorewalker Cho": {
         "attack": "0",
         "class": "",
-        "cost": "0",
-        "health": "25",
-        "type": "Hero"
+        "cost": "2",
+        "health": "4",
+        "type": "Minion"
     },
     "Lost Tallstrider": {
         "attack": "5",
@@ -2665,6 +2980,13 @@
         "cost": "4",
         "health": "4",
         "type": "Minion"
+    },
+    "ME SMASH": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Mad Bomber": {
         "attack": "3",
@@ -2688,11 +3010,18 @@
         "type": "Minion"
     },
     "Maexxna": {
+        "attack": "2",
+        "class": "",
+        "cost": "6",
+        "health": "8",
+        "type": "Minion"
+    },
+    "Magma Pulse": {
         "attack": "0",
         "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
+        "cost": "1",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Magma Rager": {
         "attack": "5",
@@ -2701,19 +3030,33 @@
         "health": "1",
         "type": "Minion"
     },
+    "Magmatron": {
+        "attack": "8",
+        "class": "",
+        "cost": "5",
+        "health": "8",
+        "type": "Minion"
+    },
+    "Magmaw": {
+        "attack": "10",
+        "class": "",
+        "cost": "5",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Majordomo Executus": {
+        "attack": "9",
+        "class": "",
+        "cost": "9",
+        "health": "7",
+        "type": "Minion"
+    },
     "Mal'Ganis": {
         "attack": "9",
         "class": "Warlock",
         "cost": "9",
         "health": "7",
         "type": "Minion"
-    },
-    "Malfurion Stormrage": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
     },
     "Malorne": {
         "attack": "9",
@@ -2863,11 +3206,11 @@
         "type": "Minion"
     },
     "Millhouse Manastorm": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "0",
-        "health": "20",
-        "type": "Hero"
+        "attack": "4",
+        "class": "",
+        "cost": "2",
+        "health": "4",
+        "type": "Minion"
     },
     "Mimiron's Head": {
         "attack": "4",
@@ -2995,6 +3338,13 @@
         "health": "7",
         "type": "Minion"
     },
+    "Moira Bronzebeard": {
+        "attack": "3",
+        "class": "",
+        "cost": "2",
+        "health": "1",
+        "type": "Minion"
+    },
     "Molten Giant": {
         "attack": "8",
         "class": "",
@@ -3107,6 +3457,13 @@
         "health": "0",
         "type": "Ability"
     },
+    "Mutation": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "NOOOOOOOOOOOO": {
         "attack": "0",
         "class": "",
@@ -3155,6 +3512,13 @@
         "cost": "2",
         "health": "0",
         "type": "Ability"
+    },
+    "Nefarian Strikes!": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Neptulon": {
         "attack": "7",
@@ -3212,13 +3576,6 @@
         "health": "3",
         "type": "Minion"
     },
-    "Noth the Plaguebringer": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
-    },
     "Nourish": {
         "attack": "0",
         "class": "Druid",
@@ -3275,6 +3632,20 @@
         "health": "2",
         "type": "Weapon"
     },
+    "Old Horde": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Old Horde Orc": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "health": "1",
+        "type": "Minion"
+    },
     "Old Murk-Eye": {
         "attack": "2",
         "class": "",
@@ -3296,6 +3667,20 @@
         "health": "8",
         "type": "Minion"
     },
+    "Onyxiclaw": {
+        "attack": "2",
+        "class": "",
+        "cost": "2",
+        "health": "6",
+        "type": "Weapon"
+    },
+    "Open the Gates": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Pandaren Scout": {
         "attack": "1",
         "class": "",
@@ -3310,13 +3695,6 @@
         "health": "2",
         "type": "Minion"
     },
-    "Patchwerk": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
-    },
     "Patient Assassin": {
         "attack": "1",
         "class": "Rogue",
@@ -3330,6 +3708,13 @@
         "cost": "3",
         "health": "2",
         "type": "Weapon"
+    },
+    "Pile On!": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Piloted Shredder": {
         "attack": "4",
@@ -3414,6 +3799,13 @@
         "cost": "1",
         "health": "0",
         "type": "Ability"
+    },
+    "Power of the Firelord": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Power of the Horde": {
         "attack": "0",
@@ -3548,6 +3940,20 @@
         "health": "3",
         "type": "Minion"
     },
+    "Razorgore's Claws": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "health": "5",
+        "type": "Weapon"
+    },
+    "Recharge": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Ability"
+    },
     "Reckless Rocketeer": {
         "attack": "5",
         "class": "",
@@ -3590,6 +3996,13 @@
         "health": "0",
         "type": "Hero Power"
     },
+    "Release the Aberrations!": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Ability"
+    },
     "Repair Bot": {
         "attack": "0",
         "class": "",
@@ -3604,19 +4017,26 @@
         "health": "0",
         "type": "Ability"
     },
-    "Reversing Switch": {
+    "Resurrect": {
+        "attack": "0",
+        "class": "Priest",
+        "cost": "2",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Reverberating Gong": {
         "attack": "0",
         "class": "",
         "cost": "1",
         "health": "0",
         "type": "Ability"
     },
-    "Rexxar": {
+    "Reversing Switch": {
         "attack": "0",
-        "class": "Hunter",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
     },
     "River Crocolisk": {
         "attack": "2",
@@ -3631,6 +4051,13 @@
         "cost": "1",
         "health": "1",
         "type": "Minion"
+    },
+    "Rock Out": {
+        "attack": "0",
+        "class": "",
+        "cost": "3",
+        "health": "0",
+        "type": "Ability"
     },
     "Rockbiter Weapon": {
         "attack": "0",
@@ -3701,13 +4128,6 @@
         "cost": "2",
         "health": "0",
         "type": "Ability"
-    },
-    "Sapphiron": {
-        "attack": "0",
-        "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
     },
     "Savage Roar": {
         "attack": "0",
@@ -4122,6 +4542,20 @@
         "health": "3",
         "type": "Minion"
     },
+    "Son of the Flame": {
+        "attack": "6",
+        "class": "",
+        "cost": "0",
+        "health": "3",
+        "type": "Minion"
+    },
+    "Sonic Breath": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "health": "0",
+        "type": "Ability"
+    },
     "Soot Spewer": {
         "attack": "3",
         "class": "Mage",
@@ -4451,6 +4885,20 @@
         "health": "5",
         "type": "Minion"
     },
+    "TIME FOR SMASH": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Tail Swipe": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "health": "0",
+        "type": "Ability"
+    },
     "Tank Mode": {
         "attack": "0",
         "class": "Druid",
@@ -4480,11 +4928,11 @@
         "type": "Minion"
     },
     "Thaddius": {
-        "attack": "0",
+        "attack": "11",
         "class": "",
-        "cost": "0",
-        "health": "45",
-        "type": "Hero"
+        "cost": "10",
+        "health": "11",
+        "type": "Minion"
     },
     "Thane Korth'azz": {
         "attack": "2",
@@ -4492,6 +4940,13 @@
         "cost": "3",
         "health": "7",
         "type": "Minion"
+    },
+    "The Alchemist": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
     },
     "The Beast": {
         "attack": "9",
@@ -4514,19 +4969,33 @@
         "health": "0",
         "type": "Ability"
     },
+    "The Majordomo": {
+        "attack": "0",
+        "class": "",
+        "cost": "2",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "The Rookery": {
+        "attack": "0",
+        "class": "",
+        "cost": "0",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "The True Warchief": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Ability"
+    },
     "Thoughtsteal": {
         "attack": "0",
         "class": "Priest",
         "cost": "3",
         "health": "0",
         "type": "Ability"
-    },
-    "Thrall": {
-        "attack": "0",
-        "class": "Shaman",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
     },
     "Thrallmar Farseer": {
         "attack": "2",
@@ -4598,6 +5067,13 @@
         "health": "0",
         "type": "Ability"
     },
+    "Toxitron": {
+        "attack": "4",
+        "class": "",
+        "cost": "1",
+        "health": "4",
+        "type": "Minion"
+    },
     "Tracking": {
         "attack": "0",
         "class": "Hunter",
@@ -4639,6 +5115,13 @@
         "cost": "7",
         "health": "6",
         "type": "Minion"
+    },
+    "True Form": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Hero Power"
     },
     "Truesilver Champion": {
         "attack": "4",
@@ -4766,26 +5249,12 @@
         "health": "0",
         "type": "Ability"
     },
-    "Uther Lightbringer": {
-        "attack": "0",
-        "class": "Paladin",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
-    },
     "V-07-TR-0N": {
         "attack": "4",
         "class": "",
         "cost": "8",
         "health": "8",
         "type": "Minion"
-    },
-    "Valeera Sanguinar": {
-        "attack": "0",
-        "class": "Rogue",
-        "cost": "0",
-        "health": "30",
-        "type": "Hero"
     },
     "Vanish": {
         "attack": "0",
@@ -4941,6 +5410,13 @@
         "health": "1",
         "type": "Minion"
     },
+    "Whirling Ash": {
+        "attack": "4",
+        "class": "",
+        "cost": "0",
+        "health": "5",
+        "type": "Minion"
+    },
     "Whirling Blades": {
         "attack": "0",
         "class": "",
@@ -4976,6 +5452,13 @@
         "health": "0",
         "type": "Ability"
     },
+    "Wild Magic": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "health": "0",
+        "type": "Hero Power"
+    },
     "Wild Pyromancer": {
         "attack": "3",
         "class": "",
@@ -5009,13 +5492,6 @@
         "class": "Shaman",
         "cost": "4",
         "health": "3",
-        "type": "Minion"
-    },
-    "Wisp": {
-        "attack": "1",
-        "class": "",
-        "cost": "0",
-        "health": "1",
         "type": "Minion"
     },
     "Wolfrider": {
