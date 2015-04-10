@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/HearthstoneDeckBuilder.iml" filepath="$PROJECT_DIR$/.idea/HearthstoneDeckBuilder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../PyGuiTest/.idea/PyGuiTest.iml" filepath="$PROJECT_DIR$/../PyGuiTest/.idea/PyGuiTest.iml" />
     </modules>
   </component>
 </project>

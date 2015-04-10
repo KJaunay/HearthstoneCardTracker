@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 #implement search function
 
@@ -133,7 +134,7 @@ class MyGui:
         tkinter.messagebox.showinfo('some title', 'some content')
 
     # define popup with a yes/no question (title, question)
-        questionpopup = tkinter.messagebox.askquestion('Question 124', 'Do you like foodl?')
+        questionpopup = tkinter.messagebox.askquestion('Question 124', 'Do you like food?')
 
         if questionpopup == 'yes':
             print('Yes')
