@@ -3,69 +3,68 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup
 
+
+'''
+#prints sourcecode to file
+try:
+    f = open('sourcecode.txt', 'a')
+    f.write(str(respData))
+    f.close()
+except Exception as e:
+    print(str(e))
+'''
+
 cardlist = {}
 
-def getdescriptionandpicture():
+def getRawUrlData(url, numpages, displaytype):
+
+    for page in range(1, numpages):
+        parameters = {}
+        parameters['display'] = displaytype
+        parameters['page'] = page
+        url_values = urllib.parse.urlencode(parameters)
+        geturl = url
+        full_url = geturl + '?' + url_values
+        data = urllib.request.urlopen(full_url)
+        response = data.read()
+        soup = BeautifulSoup(str(response))
+        print('got stuff from the net yo!')
+        return soup
+
+
+def getcarddata(urldata):
+
+    # BS4.ResultSets of each attribute
+    cardname = urldata.find_all('td', {'class': 'col-name'})
+    cardtype = urldata.find_all('td', {'class': 'col-type'})
+    cardclass = urldata.find_all('td', {'class': 'col-class'})
+    cardcost = urldata.find_all('td', {'class': 'col-cost'})
+    cardattack = urldata.find_all('td', {'class': 'col-attack'})
+    cardhealth = urldata.find_all('td', {'class': 'col-health'})
+
+    # Loop to combine all attributes with key=card_name
+    for i in range(len(cardname)):
+        cardlist[cardname[i].text.replace('\\r\\n', '')] = {'class':cardclass[i].text.replace('\xa0', ''), 'type':cardtype[i].text, 'cost':cardcost[i].text, 'attack':cardattack[i].text, 'health':cardhealth[i].text}
+
+    print('put data into cardlist')
+
+def getcardimganddescription(urldata):
+
     # thead > tbody > tr = CARD
-    # CARD > td class=visual-image-cell = IMG
+    # CARD > td class=visual-image-cell > img class="hscard-static" src = IMG
     # CARD > td class=visual-details-cell > h3 = CARDTITLE
     # CARD > td class=visual-details-cell > p = CARD DESCRIPTION
 
-    # Change data grabber into one method, and then have two other methods for processing the data
+    cardimg = urldata.find_all('')
+    carddesc = urldata.find_all('')
 
-    for page in range(1,10):
-        data = {}
-        data['display']=2
-        data['page']=page
-        url_values = urllib.parse.urlencode(data)
-        url = 'http://www.hearthpwn.com/cards'
-        full_url = url + '?' + url_values
-        data = urllib.request.urlopen(full_url)
-        respData = data.read()
+    print('finished getting img and cardlist')
 
-def serialisecarddata():
-
-    for page in range(1, 10):
-        data = {}
-        data['display'] = 1
-        data['page'] = page
-        url_values = urllib.parse.urlencode(data)
-        url = 'http://www.hearthpwn.com/cards'
-        full_url = url + '?' + url_values
-        # full_url = http://www.hearthpwn.com/cards?display=1&page=# where # is in range
-        data = urllib.request.urlopen(full_url)
-        respData = data.read() # source code
-
-        '''
-        #prints sourcecode to file
-        try:
-            f = open('sourcecode.txt', 'a')
-            f.write(str(respData))
-            f.close()
-        except Exception as e:
-            print(str(e))
-        '''
-
-        # creates a Beautiful Soup object of html webpage
-        soup = BeautifulSoup(str(respData)) 
-
-        # BS4.ResultSets of each attribute
-        cardname = soup.find_all('td', {'class':'col-name'})
-        cardtype = soup.find_all('td', {'class':'col-type'})
-        cardclass = soup.find_all('td', {'class':'col-class'})
-        cardcost = soup.find_all('td', {'class':'col-cost'})
-        cardattack = soup.find_all('td', {'class':'col-attack'})
-        cardhealth = soup.find_all('td', {'class':'col-health'})
-
-        # Loop to combine all attributes with key=card_name
-        for i in range(len(cardname)):
-            cardlist[cardname[i].text.replace('\\r\\n', '')] = {'class':cardclass[i].text.replace('\xa0', ''), 'type':cardtype[i].text, 'cost':cardcost[i].text, 'attack':cardattack[i].text, 'health':cardhealth[i].text}
-
-        print('completed: {0}'.format(full_url))
+def dumpdatatojson():
 
     jsoncardlist = json.dumps(cardlist, sort_keys=True, indent=4)
 
-    #Print JSON to file
+    # Print JSON to file
     try:
         f = open('cardlist.json', 'w')
         f.write(jsoncardlist)
@@ -73,10 +72,11 @@ def serialisecarddata():
     except Exception as e:
         print(str(e))
 
-    print('Done!!')
+    print('Dumped to JSON file!!')
+
 
 def main():
-    serialisecards()
+    print('main method')
 
 if __name__ == '__main__':
     main()
