@@ -3,7 +3,8 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup
 
-
+# TODO:
+# Develop rules for downloading image and description
 '''
 #prints sourcecode to file
 try:
@@ -16,23 +17,21 @@ except Exception as e:
 
 cardlist = {}
 
-def getRawUrlData(url, numpages, displaytype):
+def getRawUrlData(url, parameters):
+    # Takes in URL string and parameter list
+    # Returns BS4 object of webpage
 
-    for page in range(1, numpages):
-        parameters = {}
-        parameters['display'] = displaytype
-        parameters['page'] = page
-        url_values = urllib.parse.urlencode(parameters)
-        geturl = url
-        full_url = geturl + '?' + url_values
-        data = urllib.request.urlopen(full_url)
-        response = data.read()
-        soup = BeautifulSoup(str(response))
-        print('got stuff from the net yo!')
-        return soup
+    url_values = urllib.parse.urlencode(parameters)
+    target_url = url
+    full_url = target_url + '?' + url_values
+    data = urllib.request.urlopen(full_url)
+    response = data.read()
+    webpagedata = BeautifulSoup(str(response))
+    print('got stuff from the net yo!')
+    return webpagedata 
 
 
-def getcarddata(urldata):
+def serialiseCardData(urldata):
 
     # BS4.ResultSets of each attribute
     cardname = urldata.find_all('td', {'class': 'col-name'})
@@ -48,19 +47,23 @@ def getcarddata(urldata):
 
     print('put data into cardlist')
 
-def getcardimganddescription(urldata):
+def getCardImgAndDescription(urldata):
 
     # thead > tbody > tr = CARD
     # CARD > td class=visual-image-cell > img class="hscard-static" src = IMG
     # CARD > td class=visual-details-cell > h3 = CARDTITLE
     # CARD > td class=visual-details-cell > p = CARD DESCRIPTION
 
+    cardname = urldata.find_all('')
     cardimg = urldata.find_all('')
     carddesc = urldata.find_all('')
 
-    print('finished getting img and cardlist')
+    for i in range(len(cardimg)):
+        cardlist[cardname[i]] = {'description':carddesc[i], 'img':cardimg[i]}
 
-def dumpdatatojson():
+    print('finished getting img and description')
+
+def dumpDataToJson():
 
     jsoncardlist = json.dumps(cardlist, sort_keys=True, indent=4)
 
@@ -72,11 +75,18 @@ def dumpdatatojson():
     except Exception as e:
         print(str(e))
 
-    print('Dumped to JSON file!!')
+    print('Dumped to JSON file')
 
 
 def main():
-    print('main method')
+    url = 'http://www.hearthpwn.com/cards'
+    parameters = {}
+    parameters['display']=1
+    parameters['page']=1
+    var = getRawUrlData(url, parameters) 
+    serialiseCardData(var)
+    dumpDataToJson()
+    
 
 if __name__ == '__main__':
     main()
