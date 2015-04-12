@@ -28,6 +28,7 @@ def getRawUrlData(url, parameters):
     data = urllib.request.urlopen(full_url)
     response = data.read()
     webpagedata = BeautifulSoup(str(response))
+    
     return webpagedata  # Returns BS4 object of webpage
 
 
@@ -46,15 +47,11 @@ def serialiseCardData(urldata):
         cardlist[cardname[i]] = {'class': cardclass[i], 'type': cardtype[i], 'cost': cardcost[i], 'attack': cardattack[i], 'health': cardhealth[i]}
 
     print('put data into cardlist')
-
-
-def getCardImgAndDescription(urldata):
-    # TODO: Complete method with correct img downloading and naming
-    print("getCardImgAndDescription to be completed ... ")
-
+    
 
 def dumpDataToJson():
 
+    # Create JSON object
     jsoncardlist = json.dumps(cardlist, sort_keys=True, indent=4)
 
     # Print JSON to file
@@ -70,48 +67,36 @@ def dumpDataToJson():
 
 def testMethod(urldata):
 
-    # print(os.path.abspath('CardSerialiser.py'))  # entire path D:\Users ... \CardSerialiser.py
-    # print(os.path.basename('CardSerialiser.py'))  # CardSerialiser.py
-    # print(os.path.dirname(os.path.abspath('CardSerialiser.py')))  # cd
-    # print(os.path.split(os.path.abspath('CardSerialiser.py')))  # cd
-
-    # TODO: insert card name/number into file name
-    # TODO: retrieve card name from web page to be used as img file name
-
     soup = urldata
 
-
-
-    # TODO: Get names of card
-    # cardimgname= (soup.tbody.tr.h3.a.text)  # card name
+    #---------------------------------------
+    # TODO: COMPLETE - Get names of card
     cardnamelist = soup.find_all("h3")
     for tag in cardnamelist:
         print(tag.text)
-
-    # TODO: Get description - STILL NEED TO FILTER TAG.TEXT
-    # carddesc = soup.tbody.tr.p.string  # card description
-    # carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
-    # for tag in carddesc:
-    #     print(tag.text)
-
+    #---------------------------------------
+    # TODO: COMPLETE - Get description
+    carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
+    for item in carddesc:
+        print(item.find("p"))
+    #---------------------------------------
     # TODO: COMPLETE - Get img url
-    cardurllist = soup.find_all("img", class_="hscard-static")  # need to obtain src url
-    # for tag in cardurllist:
-    #     print(tag['src'])
-
-
-    # # TODO: COMPLETE - Download img to directory using card name as filename
-    # curdir = os.getcwd()
-    # os.makedirs(curdir + '\images', exist_ok=True)
-    # for i in range(len(cardimgname)):
-    #     name = cardimgname[i].text
-    #     url = cardurllist[i]['src']
-    #     print(name + ' ' + cardurllist)
-    #     fw = open('images\\' + name + '.png', 'wb')
-    #     imgfile = urllib.request.urlopen(url)
-    #     resp = imgfile.read()
-    #     fw.write(resp)
-    #     fw.close()
+    cardurllist = soup.find_all("img", class_="hscard-static")  # ['src'] = url
+    for tag in cardurllist:
+        print(tag['src'])
+    #---------------------------------------
+    # TODO: COMPLETE - Download img to directory using card name as filename
+##    curdir = os.getcwd()
+##    os.makedirs(curdir + '\images', exist_ok=True)
+##    for i in range(len(cardimgname)):
+##        name = cardimgname[i].text
+##        url = cardurllist[i]['src']
+##        print(name + ' ' + cardurllist)
+##        fw = open('images\\' + name + '.png', 'wb')
+##        imgfile = urllib.request.urlopen(url)
+##        resp = imgfile.read()
+##        fw.write(resp)
+##        fw.close()
 
 def main():
     url = 'http://www.hearthpwn.com/cards'
