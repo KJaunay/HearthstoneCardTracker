@@ -1,11 +1,10 @@
 import json
+import os
+import re
 import urllib.request
 import urllib.parse
-import re
 from bs4 import BeautifulSoup
 
-# TODO:
-# Develop rules for downloading image and description
 '''
 #prints sourcecode to file
 try:
@@ -18,6 +17,7 @@ except Exception as e:
 
 cardlist = {}
 
+
 def getRawUrlData(url, parameters):
     # Takes in URL string and parameter list
     # Returns BS4 object of webpage
@@ -28,41 +28,30 @@ def getRawUrlData(url, parameters):
     data = urllib.request.urlopen(full_url)
     response = data.read()
     webpagedata = BeautifulSoup(str(response))
-    print('got stuff from the net yo!')
-    return webpagedata 
+    return webpagedata  # Returns BS4 object of webpage
 
 
 def serialiseCardData(urldata):
 
     # BS4.ResultSets of each attribute
-    cardname = urldata.find_all('td', {'class': 'col-name'})
-    cardtype = urldata.find_all('td', {'class': 'col-type'})
-    cardclass = urldata.find_all('td', {'class': 'col-class'})
-    cardcost = urldata.find_all('td', {'class': 'col-cost'})
-    cardattack = urldata.find_all('td', {'class': 'col-attack'})
-    cardhealth = urldata.find_all('td', {'class': 'col-health'})
+    cardname = urldata.find_all('td', {'class': 'col-name'}).text.replace('\\r\\n', '')
+    cardtype = urldata.find_all('td', {'class': 'col-type'}).text
+    cardclass = urldata.find_all('td', {'class': 'col-class'}).text.replace('\xa0', '')
+    cardcost = urldata.find_all('td', {'class': 'col-cost'}).text
+    cardattack = urldata.find_all('td', {'class': 'col-attack'}).text
+    cardhealth = urldata.find_all('td', {'class': 'col-health'}).text
 
     # Loop to combine all attributes with key=card_name
     for i in range(len(cardname)):
-        cardlist[cardname[i].text.replace('\\r\\n', '')] = {'class':cardclass[i].text.replace('\xa0', ''), 'type':cardtype[i].text, 'cost':cardcost[i].text, 'attack':cardattack[i].text, 'health':cardhealth[i].text}
+        cardlist[cardname[i]] = {'class': cardclass[i], 'type': cardtype[i], 'cost': cardcost[i], 'attack': cardattack[i], 'health': cardhealth[i]}
 
     print('put data into cardlist')
 
+
 def getCardImgAndDescription(urldata):
+    # TODO: Complete method with correct img downloading and naming
+    print("getCardImgAndDescription to be completed ... ")
 
-    # thead > tbody > tr = CARD
-    # CARD > td class=visual-image-cell > img class="hscard-static" src = IMG
-    # CARD > td class=visual-details-cell > h3 = CARDTITLE
-    # CARD > td class=visual-details-cell > p = CARD DESCRIPTION
-
-    cardname = urldata.find_all('').text
-    cardimg = urldata.find_all('').text
-    carddesc = urldata.find_all('').text
-
-    for i in range(len(cardimg)):
-        cardlist[cardname[i]] = {'description':carddesc[i], 'img':cardimg[i]}
-
-    print('finished getting img and description')
 
 def dumpDataToJson():
 
@@ -78,29 +67,64 @@ def dumpDataToJson():
 
     print('Dumped to JSON file')
 
+
 def testMethod(urldata):
+
+    # print(os.path.abspath('CardSerialiser.py'))  # entire path D:\Users ... \CardSerialiser.py
+    # print(os.path.basename('CardSerialiser.py'))  # CardSerialiser.py
+    # print(os.path.dirname(os.path.abspath('CardSerialiser.py')))  # cd
+    # print(os.path.split(os.path.abspath('CardSerialiser.py')))  # cd
+
+    # TODO: insert card name/number into file name
+    # TODO: retrieve card name from web page to be used as img file name
+
     soup = urldata
-    print('test method')
-    # print(soup.tbody.tr.h3.a.text)  # card name
-    # print(soup.tbody.tr.p)  # card description
-    # print(soup.tbody.tr)  # card row
-    # print(soup.find("td", class_="visual-details-cell")) 
-    var = soup.find("img", class_="hscard-static") # need to obtain src url
-    
-    src = re.findall("?", var)
-    print(src)
-    print('post method')
-    
+
+
+
+    # TODO: Get names of card
+    # cardimgname= (soup.tbody.tr.h3.a.text)  # card name
+    cardnamelist = soup.find_all("h3")
+    for tag in cardnamelist:
+        print(tag.text)
+
+    # TODO: Get description - STILL NEED TO FILTER TAG.TEXT
+    # carddesc = soup.tbody.tr.p.string  # card description
+    # carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
+    # for tag in carddesc:
+    #     print(tag.text)
+
+    # TODO: COMPLETE - Get img url
+    cardurllist = soup.find_all("img", class_="hscard-static")  # need to obtain src url
+    # for tag in cardurllist:
+    #     print(tag['src'])
+
+
+    # # TODO: COMPLETE - Download img to directory using card name as filename
+    # curdir = os.getcwd()
+    # os.makedirs(curdir + '\images', exist_ok=True)
+    # for i in range(len(cardimgname)):
+    #     name = cardimgname[i].text
+    #     url = cardurllist[i]['src']
+    #     print(name + ' ' + cardurllist)
+    #     fw = open('images\\' + name + '.png', 'wb')
+    #     imgfile = urllib.request.urlopen(url)
+    #     resp = imgfile.read()
+    #     fw.write(resp)
+    #     fw.close()
 
 def main():
     url = 'http://www.hearthpwn.com/cards'
     parameters = {}
-    parameters['display']=2
-    parameters['page']=1
+    parameters['display'] = 2
+    parameters['page'] = 1
     var = getRawUrlData(url, parameters)
     testMethod(var)
+    print()
     print('done')
     
 
 if __name__ == '__main__':
     main()
+
+

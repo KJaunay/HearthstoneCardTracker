@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 
-#implement search function
+# TODO: implement search function
+
 
 class MyGui:
     def __init__(self, master): # master is the 'main' window in this case, passed in as root
@@ -33,7 +34,7 @@ class MyGui:
         self.cardname_L = Label(cardimage_F, text='Card Name')
         self.cardname_L.grid(row=0, column=0, columnspan=2)
 
-        self.cardpicture_I = PhotoImage(file='Ok-icon.png')
+        self.cardpicture_I = PhotoImage(file='images\Molten Giant.png')
         self.cardpicture_L = Label(cardimage_F, image=self.cardpicture_I)
         self.cardpicture_L.grid(row=1, column=0, columnspan=2)
 
@@ -165,7 +166,6 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
-    root.geometry("450x450")
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
 
