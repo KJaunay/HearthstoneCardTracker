@@ -1,6 +1,7 @@
 import json
 import urllib.request
 import urllib.parse
+import re
 from bs4 import BeautifulSoup
 
 # TODO:
@@ -54,9 +55,9 @@ def getCardImgAndDescription(urldata):
     # CARD > td class=visual-details-cell > h3 = CARDTITLE
     # CARD > td class=visual-details-cell > p = CARD DESCRIPTION
 
-    cardname = urldata.find_all('')
-    cardimg = urldata.find_all('')
-    carddesc = urldata.find_all('')
+    cardname = urldata.find_all('').text
+    cardimg = urldata.find_all('').text
+    carddesc = urldata.find_all('').text
 
     for i in range(len(cardimg)):
         cardlist[cardname[i]] = {'description':carddesc[i], 'img':cardimg[i]}
@@ -77,15 +78,28 @@ def dumpDataToJson():
 
     print('Dumped to JSON file')
 
+def testMethod(urldata):
+    soup = urldata
+    print('test method')
+    # print(soup.tbody.tr.h3.a.text)  # card name
+    # print(soup.tbody.tr.p)  # card description
+    # print(soup.tbody.tr)  # card row
+    # print(soup.find("td", class_="visual-details-cell")) 
+    var = soup.find("img", class_="hscard-static") # need to obtain src url
+    
+    src = re.findall("?", var)
+    print(src)
+    print('post method')
+    
 
 def main():
     url = 'http://www.hearthpwn.com/cards'
     parameters = {}
-    parameters['display']=1
+    parameters['display']=2
     parameters['page']=1
-    var = getRawUrlData(url, parameters) 
-    serialiseCardData(var)
-    dumpDataToJson()
+    var = getRawUrlData(url, parameters)
+    testMethod(var)
+    print('done')
     
 
 if __name__ == '__main__':
