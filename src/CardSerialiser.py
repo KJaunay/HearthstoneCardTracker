@@ -15,10 +15,11 @@ except Exception as e:
     print(str(e))
 '''
 
-#cardlist = {'name': {'class', 'type', 'class', 'attack', 'health', 'cost', 'description', 'url'}}
 cardlist = {}
 
+
 def getRawUrlData(url, parameters):
+
     # Takes in URL string and parameter list
     # Returns BS4 object of webpage
     print('get raw url data - BEGIN')
@@ -80,7 +81,11 @@ def testMethod(urldata):
         desc = re.sub(r'<((/?[bp])|(br/))>', '', str(carddesc[i].find("p")))
         name = cardnamelist[i].text
         url = cardurllist[i]['src']
-        cardlist[name] = {'description': desc, 'img': url}
+        #cardlist[name] = {'description': desc, 'img': url}
+
+        cardlist[name]['description'] = desc
+        #cardlist[name]['url'] = url
+
         if not os.path.isfile('images\\' + name + '.png'):
             fw = open('images\\' + name + '.png', 'wb')
             imgfile = urllib.request.urlopen(url)
@@ -109,16 +114,24 @@ def dumpDataToJson():
 
 
 def main():
+
     url = 'http://www.hearthpwn.com/cards'
     parameters = {}
-    parameters['display'] = 2
-    parameters['page'] = 1
-    var = getRawUrlData(url, parameters)
-    testMethod(var)
-    # parameters['display'] = 1
-    # parameters['page'] = 1
-    # var = getRawUrlData(url, parameters)
-    # serialiseCardData(var)
+
+    # TODO: repeat for all pages
+    for pagenumber in range(1, 10):
+        # name, cost etc
+        parameters['display'] = 1
+        parameters['page'] = pagenumber
+        var = getRawUrlData(url, parameters)
+        serialiseCardData(var)
+
+        # url + desc
+        parameters['display'] = 2
+        parameters['page'] = pagenumber
+        var = getRawUrlData(url, parameters)
+        testMethod(var)
+
     dumpDataToJson()
 
 
