@@ -1,688 +1,394 @@
 {
     "Activate Electron": {
-        "attack": "0",
-        "class": "",
-        "cost": "6",
-        "health": "0",
-        "type": "Hero Power"
+        "description": "Hero PowerActivate Electron!",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/178/14598.png"
     },
     "Activate Magmatron": {
-        "attack": "0",
-        "class": "",
-        "cost": "6",
-        "health": "0",
-        "type": "Hero Power"
+        "description": "Hero PowerActivate Magmatron!",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/183/14603.png"
     },
     "Al'Akir the Windlord": {
-        "attack": "3",
-        "class": "Shaman",
-        "cost": "8",
-        "health": "5",
-        "type": "Minion"
+        "description": "Windfury, Charge, Divine Shield, Taunt",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/478/335.png"
     },
     "Alexstrasza": {
-        "attack": "8",
-        "class": "",
-        "cost": "9",
-        "health": "8",
-        "type": "Minion"
+        "description": "Battlecry: Set a hero\\'s remaining Health to 15.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/446/303.png"
     },
     "Ancient of Lore": {
-        "attack": "5",
-        "class": "Druid",
-        "cost": "7",
-        "health": "5",
-        "type": "Minion"
+        "description": "Choose One - Draw 2 cards; or Restore 5 Health.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/465/34.png"
     },
     "Ancient of War": {
-        "attack": "5",
-        "class": "Druid",
-        "cost": "7",
-        "health": "5",
-        "type": "Minion"
+        "description": "Choose One -+5 Attack; or +5 Health and Taunt.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/106/242.png"
     },
     "Anima Golem": {
-        "attack": "9",
-        "class": "Warlock",
-        "cost": "6",
-        "health": "9",
-        "type": "Minion"
+        "description": "At the end of each turn, destroy this minion if it\\'s your only one.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/3/12245.png"
     },
     "Archmage": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "7",
-        "type": "Minion"
+        "description": "Spell Damage +1",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/622/545.png"
     },
     "Archmage Antonidas": {
-        "attack": "5",
-        "class": "Mage",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "Whenever you cast a spell, add a \\'Fireball\\' spell to your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/440/220.png"
     },
     "Argent Commander": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "2",
-        "type": "Minion"
+        "description": "Charge, Divine Shield",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/906/463.png"
     },
     "Avenging Wrath": {
-        "attack": "0",
-        "class": "Paladin",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 8 damage randomly split among all enemies.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/220/142.png"
     },
     "Baron Geddon": {
-        "attack": "7",
-        "class": "",
-        "cost": "7",
-        "health": "5",
-        "type": "Minion"
+        "description": "At the end of your turn, deal 2 damage to ALL other characters.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/139/539.png"
     },
     "Blizzard": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 2 damage to all enemy minions and Freeze them.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/426/276.png"
     },
     "Boulderfist Ogre": {
-        "attack": "6",
-        "class": "",
-        "cost": "6",
-        "health": "7",
-        "type": "Minion"
+        "description": "<i>\"ME HAVE GOOD STATS FOR THE COST\"</i>",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/673/60.png"
     },
     "Cabal Shadow Priest": {
-        "attack": "4",
-        "class": "Priest",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Battlecry: Take control of an enemy minion that has 2 or less Attack.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/933/147.png"
     },
     "Cairne Bloodhoof": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Deathrattle: Summon a 4/5 Baine Bloodhoof.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/960/498.png"
     },
     "Cenarius": {
-        "attack": "5",
-        "class": "Druid",
-        "cost": "9",
-        "health": "8",
-        "type": "Minion"
+        "description": "Choose One - Give your other minions +2/+2; or Summon two 2/2 Treants with Taunt.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/473/605.png"
     },
     "Chains": {
-        "attack": "0",
-        "class": "",
-        "cost": "8",
-        "health": "0",
-        "type": "Hero Power"
+        "description": "Hero PowerTake control of a random enemy minion.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/128/159/7817.png"
     },
     "Clockwork Giant": {
-        "attack": "8",
-        "class": "",
-        "cost": "12",
-        "health": "8",
-        "type": "Minion"
+        "description": "Costs (1) less for each card in your opponent\\'s hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/148/12201.png"
     },
     "Core Hound": {
-        "attack": "9",
-        "class": "",
-        "cost": "7",
-        "health": "5",
-        "type": "Minion"
+        "description": "<i>You don\\xe2\\x80\\x99t tame a Core Hound. You just train it to eat someone else before it eats you.</i>",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/676/173.png"
     },
     "Crush": {
-        "attack": "0",
-        "class": "Warrior",
-        "cost": "7",
-        "health": "0",
-        "type": "Ability"
+        "description": "Destroy a minion. If you have a damaged minion, this costs (4) less.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/924/12303.png"
     },
     "Dark Iron Bouncer": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "8",
-        "type": "Minion"
+        "description": "Always wins Brawls.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/58/14474.png"
     },
     "Dark Wispers": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Choose One - Summon 5 Wisps; or Give a minion +5/+5 and Taunt.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/882/12298.png"
     },
     "Deathwing": {
-        "attack": "12",
-        "class": "",
-        "cost": "10",
-        "health": "12",
-        "type": "Minion"
+        "description": "Battlecry: Destroy all other minions and discard your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/535/474.png"
     },
     "Dr. Boom": {
-        "attack": "7",
-        "class": "",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "Battlecry: Summon two 1/1 Boom Bots. <i>WARNING: Bots may explode.</i>",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/109/12182.png"
     },
     "Dread Infernal": {
-        "attack": "6",
-        "class": "Warlock",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "Battlecry: Deal 1 damage to ALL other characters.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/489/36.png"
     },
     "Dual Warglaives": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "2",
-        "type": "Weapon"
+        "description": "None",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/685/599.png"
     },
     "Emperor Thaurissan": {
-        "attack": "5",
-        "class": "",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "At the end of your turn, reduce the Cost of cards in your hand by (1).",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/32/14454.png"
     },
     "Fire Elemental": {
-        "attack": "6",
-        "class": "Shaman",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Battlecry: Deal 3 damage.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/453/636.png"
     },
     "Flame Leviathan": {
-        "attack": "7",
-        "class": "Mage",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "When you draw this, deal 2 damage to all characters.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/759/12290.png"
     },
     "Flamestrike": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "7",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 4 damage to all enemy minions.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/435/44.png"
     },
     "Foe Reaper 4000": {
-        "attack": "6",
-        "class": "",
-        "cost": "8",
-        "health": "9",
-        "type": "Minion"
+        "description": "Also damages the minions next to whomever he attacks.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/124/12217.png"
     },
     "Force of Nature": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Summon three 2/2 Treants with Charge that die at the end of the turn.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/467/237.png"
     },
     "Force-Tank MAX": {
-        "attack": "7",
-        "class": "",
-        "cost": "8",
-        "health": "7",
-        "type": "Minion"
+        "description": "Divine Shield",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/9/12248.png"
     },
     "Frost Elemental": {
-        "attack": "5",
-        "class": "",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Battlecry: Freeze a character.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/169/598.png"
     },
     "Gadgetzan Auctioneer": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "4",
-        "type": "Minion"
+        "description": "Whenever you cast a spell, draw a card.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/939/131.png"
     },
     "Gahz'rilla": {
-        "attack": "6",
-        "class": "Hunter",
-        "cost": "7",
-        "health": "9",
-        "type": "Minion"
+        "description": "Whenever this minion takes damage, double its Attack.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/915/12232.png"
     },
     "Gazlowe": {
-        "attack": "3",
-        "class": "",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "Whenever you cast a 1-mana spell, add a random Mech to your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/136/12287.png"
     },
     "Gelbin Mekkatorque": {
-        "attack": "6",
-        "class": "",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "Battlecry: Summon an AWESOME invention.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/966/251.png"
     },
     "Gladiator's Longbow": {
-        "attack": "5",
-        "class": "Hunter",
-        "cost": "7",
-        "health": "2",
-        "type": "Weapon"
+        "description": "Your hero is Immune while attacking.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/769/278.png"
     },
     "Gorehowl": {
-        "attack": "7",
-        "class": "Warrior",
-        "cost": "7",
-        "health": "1",
-        "type": "Weapon"
+        "description": "Attacking a minion costs 1 Attack instead of 1 Durability.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/361/96.png"
     },
     "Grommash Hellscream": {
-        "attack": "4",
-        "class": "Warrior",
-        "cost": "8",
-        "health": "9",
-        "type": "Minion"
+        "description": "ChargeEnrage: +6 Attack",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/367/643.png"
     },
     "Gruul": {
-        "attack": "7",
-        "class": "",
-        "cost": "8",
-        "health": "7",
-        "type": "Minion"
+        "description": "At the end of each turn, gain +1/+1 .",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/557/18.png"
     },
     "Guardian of Kings": {
-        "attack": "5",
-        "class": "Paladin",
-        "cost": "7",
-        "health": "6",
-        "type": "Minion"
+        "description": "Battlecry: Restore 6 Health to your hero.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/525/283.png"
     },
     "Hogger": {
-        "attack": "4",
-        "class": "",
-        "cost": "6",
-        "health": "4",
-        "type": "Minion"
+        "description": "At the end of your turn, summon a 2/2 Gnoll with Taunt.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/560/39.png"
     },
     "Holy Fire": {
-        "attack": "0",
-        "class": "Priest",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 5 damage. Restore #5 Health to your hero.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/596/457.png"
     },
     "Illidan Stormrage": {
-        "attack": "7",
-        "class": "",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Whenever you play a card, summon a 2/1 Flame of Azzinoth.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/568/203.png"
     },
     "Infernal": {
-        "attack": "6",
-        "class": "Warlock",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "None",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/617/121.png"
     },
     "Iron Juggernaut": {
-        "attack": "6",
-        "class": "Warrior",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Battlecry: Shuffle a Mine into your opponent\\'s deck. When drawn, it explodes for 10 damage.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/936/12295.png"
     },
     "Ironbark Protector": {
-        "attack": "8",
-        "class": "Druid",
-        "cost": "8",
-        "health": "8",
-        "type": "Minion"
+        "description": "Taunt",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/700/238.png"
     },
     "Kel'Thuzad": {
-        "attack": "6",
-        "class": "",
-        "cost": "8",
-        "health": "8",
-        "type": "Minion"
+        "description": "At the end of each turn, summon all friendly minions that died this turn.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/669/7742.png"
     },
     "Kidnapper": {
-        "attack": "5",
-        "class": "Rogue",
-        "cost": "6",
-        "health": "3",
-        "type": "Minion"
+        "description": "Combo: Return a minion to its owner\\'s hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/453/562.png"
     },
     "King Krush": {
-        "attack": "8",
-        "class": "Hunter",
-        "cost": "9",
-        "health": "8",
-        "type": "Minion"
+        "description": "Charge",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/415/194.png"
     },
     "Lay on Hands": {
-        "attack": "0",
-        "class": "Paladin",
-        "cost": "8",
-        "health": "0",
-        "type": "Ability"
+        "description": "Restore #8 Health. Draw 3 cards.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/274/506.png"
     },
     "Lightbomb": {
-        "attack": "0",
-        "class": "Priest",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal damage to each minion equal to its Attack.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/762/12301.png"
     },
     "Locust Swarm": {
-        "attack": "0",
-        "class": "",
-        "cost": "7",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 3 damage to all enemy minions. Restore #3 Health to your hero.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/208/7825.png"
     },
     "Lord Jaraxxus": {
-        "attack": "3",
-        "class": "Warlock",
-        "cost": "9",
-        "health": "15",
-        "type": "Minion"
+        "description": "Battlecry: Destroy your hero and replace it with Lord Jaraxxus.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/238/482.png"
     },
     "Lord of the Arena": {
-        "attack": "6",
-        "class": "",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Taunt",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/628/414.png"
     },
     "Maexxna": {
-        "attack": "2",
-        "class": "",
-        "cost": "6",
-        "health": "8",
-        "type": "Minion"
+        "description": "Destroy any minion damaged by this minion.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/657/7747.png"
     },
     "Majordomo Executus": {
-        "attack": "9",
-        "class": "",
-        "cost": "9",
-        "health": "7",
-        "type": "Minion"
+        "description": "Deathrattle: Replace your hero with Ragnaros, the Firelord.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/20/14456.png"
     },
     "Mal'Ganis": {
-        "attack": "9",
-        "class": "Warlock",
-        "cost": "9",
-        "health": "7",
-        "type": "Minion"
+        "description": "Your other Demons have +2/+2.Your hero is Immune.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/803/12294.png"
     },
     "Malorne": {
-        "attack": "9",
-        "class": "Druid",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "Deathrattle: Shuffle this minion into your deck.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/864/12293.png"
     },
     "Malygos": {
-        "attack": "4",
-        "class": "",
-        "cost": "9",
-        "health": "12",
-        "type": "Minion"
+        "description": "Spell Damage +5",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/452/241.png"
     },
     "Mech-Bear-Cat": {
-        "attack": "7",
-        "class": "Druid",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "Whenever this minion takes damage, add a Spare Part card to your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/861/12226.png"
     },
     "Mekgineer Thermaplugg": {
-        "attack": "9",
-        "class": "",
-        "cost": "9",
-        "health": "7",
-        "type": "Minion"
+        "description": "Whenever an enemy minion dies, summon a Leper Gnome.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/133/12196.png"
     },
     "Mind Control": {
-        "attack": "0",
-        "class": "Priest",
-        "cost": "10",
-        "health": "0",
-        "type": "Ability"
+        "description": "Take control of an enemy minion.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/369/401.png"
     },
     "Mogor the Ogre": {
-        "attack": "7",
-        "class": "",
-        "cost": "6",
-        "health": "6",
-        "type": "Minion"
+        "description": "All minions have a 50% chance to attack the wrong enemy.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/121/12282.png"
     },
     "Molten Giant": {
-        "attack": "8",
-        "class": "",
-        "cost": "20",
-        "health": "8",
-        "type": "Minion"
+        "description": "Costs (1) less for each damage your hero has taken.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/584/94.png"
     },
     "Mountain Giant": {
-        "attack": "8",
-        "class": "",
-        "cost": "12",
-        "health": "8",
-        "type": "Minion"
+        "description": "Costs (1) less for each other card in your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/957/264.png"
     },
     "Mukla's Big Brother": {
-        "attack": "10",
-        "class": "",
-        "cost": "6",
-        "health": "10",
-        "type": "Minion"
+        "description": "So strong! And only 6 Mana?!",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/658/404.png"
     },
     "Neptulon": {
-        "attack": "7",
-        "class": "Shaman",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "Battlecry: Add 4 random Murlocs to your hand. Overload: (3)",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/891/12292.png"
     },
     "Nozdormu": {
-        "attack": "8",
-        "class": "",
-        "cost": "9",
-        "health": "8",
-        "type": "Minion"
+        "description": "Players only have 15 seconds to take their turns.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/443/285.png"
     },
     "Onyxia": {
-        "attack": "8",
-        "class": "",
-        "cost": "9",
-        "health": "8",
-        "type": "Minion"
+        "description": "Battlecry: Summon 1/1 Whelps until your side of the battlefield is full.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/449/432.png"
     },
     "Piloted Sky Golem": {
-        "attack": "6",
-        "class": "",
-        "cost": "6",
-        "health": "4",
-        "type": "Minion"
+        "description": "Deathrattle: Summon a random 4-Cost minion.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/94/12175.png"
     },
     "Plague": {
-        "attack": "0",
-        "class": "",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Destroy all non-Skeleton minions.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/333/7843.png"
     },
     "Priestess of Elune": {
-        "attack": "5",
-        "class": "",
-        "cost": "6",
-        "health": "4",
-        "type": "Minion"
+        "description": "Battlecry: Restore 4 Health to your hero.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/500/138.png"
     },
     "Prophet Velen": {
-        "attack": "7",
-        "class": "Priest",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "Double the damage and healing of your spells and Hero Power.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/271/228.png"
     },
     "Pyroblast": {
-        "attack": "0",
-        "class": "Mage",
-        "cost": "10",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 10 damage.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/166/496.png"
     },
     "Ragnaros the Firelord": {
-        "attack": "8",
-        "class": "",
-        "cost": "8",
-        "health": "8",
-        "type": "Minion"
+        "description": "Can\\'t Attack. At the end of your turn, deal 8 damage to a random enemy.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/187/503.png"
     },
     "Ravenholdt Assassin": {
-        "attack": "7",
-        "class": "",
-        "cost": "7",
-        "health": "5",
-        "type": "Minion"
+        "description": "Stealth",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/625/518.png"
     },
     "Reckless Rocketeer": {
-        "attack": "5",
-        "class": "",
-        "cost": "6",
-        "health": "2",
-        "type": "Minion"
+        "description": "Charge",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/682/560.png"
     },
     "Recycle": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Shuffle an enemy minion into your opponent\\'s deck.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/845/12279.png"
     },
     "Savannah Highmane": {
-        "attack": "6",
-        "class": "Hunter",
-        "cost": "6",
-        "health": "5",
-        "type": "Minion"
+        "description": "Deathrattle: Summon two 2/2 Hyenas.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/394/8.png"
     },
     "Sea Giant": {
-        "attack": "8",
-        "class": "",
-        "cost": "10",
-        "health": "8",
-        "type": "Minion"
+        "description": "Costs (1) less for each other minion on the battlefield.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/507/614.png"
     },
     "Siphon Soul": {
-        "attack": "0",
-        "class": "Warlock",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Destroy a minion. Restore #3 Health to your hero.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/208/573.png"
     },
     "Sneed's Old Shredder": {
-        "attack": "5",
-        "class": "",
-        "cost": "8",
-        "health": "7",
-        "type": "Minion"
+        "description": "Deathrattle: Summon a random legendary minion.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/127/12187.png"
     },
     "Sprint": {
-        "attack": "0",
-        "class": "Rogue",
-        "cost": "7",
-        "health": "0",
-        "type": "Ability"
+        "description": "Draw 4 cards.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/510/90.png"
     },
     "Starfire": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Deal 5 damage.Draw a card.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/103/667.png"
     },
     "Stormwind Champion": {
-        "attack": "6",
-        "class": "",
-        "cost": "7",
-        "health": "6",
-        "type": "Minion"
+        "description": "Your other minions have +1/+1.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/688/310.png"
     },
     "Thaddius": {
-        "attack": "11",
-        "class": "",
-        "cost": "10",
-        "health": "11",
-        "type": "Minion"
+        "description": "None",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/675/7759.png"
     },
     "Tirion Fordring": {
-        "attack": "6",
-        "class": "Paladin",
-        "cost": "8",
-        "health": "6",
-        "type": "Minion"
+        "description": "Divine Shield. Taunt. Deathrattle: Equip a 5/3 Ashbringer.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/304/391.png"
     },
     "Tree of Life": {
-        "attack": "0",
-        "class": "Druid",
-        "cost": "9",
-        "health": "0",
-        "type": "Ability"
+        "description": "Restore all characters to full Health.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/858/12270.png"
     },
     "Troggzor the Earthinator": {
-        "attack": "6",
-        "class": "",
-        "cost": "7",
-        "health": "6",
-        "type": "Minion"
+        "description": "Whenever your opponent casts a spell, summon a Burly Rockjaw Trogg.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/139/12272.png"
     },
     "Twisting Nether": {
-        "attack": "0",
-        "class": "Warlock",
-        "cost": "8",
-        "health": "0",
-        "type": "Ability"
+        "description": "Destroy all minions.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/148/214/398.png"
     },
     "V-07-TR-0N": {
-        "attack": "4",
-        "class": "",
-        "cost": "8",
-        "health": "8",
-        "type": "Minion"
+        "description": "ChargeMega-Windfury <i>(Can attack four times a turn.)</i>",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/118/12362.png"
     },
     "Vanish": {
-        "attack": "0",
-        "class": "Rogue",
-        "cost": "6",
-        "health": "0",
-        "type": "Ability"
+        "description": "Return all minions to their owner\\'s hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/149/450/658.png"
     },
     "War Golem": {
-        "attack": "7",
-        "class": "",
-        "cost": "7",
-        "health": "7",
-        "type": "Minion"
+        "description": "<i>Golems are not afraid, but for some reason they still run when you cast Fear on them.  Instinct, maybe?  A desire to blend in?</i>",
+        "img": "http://media-Hearth.cursecdn.com/avatars/147/655/323.png"
     },
     "Ysera": {
-        "attack": "4",
-        "class": "",
-        "cost": "9",
-        "health": "12",
-        "type": "Minion"
+        "description": "At the end of your turn, add a Dream Card to your hand.",
+        "img": "http://media-Hearth.cursecdn.com/avatars/198/222/495.png"
     }
 }

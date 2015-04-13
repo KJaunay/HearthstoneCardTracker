@@ -15,42 +15,85 @@ except Exception as e:
     print(str(e))
 '''
 
+#cardlist = {'name': {'class', 'type', 'class', 'attack', 'health', 'cost', 'description', 'url'}}
 cardlist = {}
-
 
 def getRawUrlData(url, parameters):
     # Takes in URL string and parameter list
     # Returns BS4 object of webpage
-
+    print('get raw url data - BEGIN')
     url_values = urllib.parse.urlencode(parameters)
     target_url = url
     full_url = target_url + '?' + url_values
     data = urllib.request.urlopen(full_url)
     response = data.read()
     webpagedata = BeautifulSoup(str(response))
-    
+    print('get raw url data - FINISHED')
     return webpagedata  # Returns BS4 object of webpage
 
 
 def serialiseCardData(urldata):
 
+    print('serialiseCardData - BEGIN')
+
     # BS4.ResultSets of each attribute
-    cardname = urldata.find_all('td', {'class': 'col-name'}).text.replace('\\r\\n', '')
-    cardtype = urldata.find_all('td', {'class': 'col-type'}).text
-    cardclass = urldata.find_all('td', {'class': 'col-class'}).text.replace('\xa0', '')
-    cardcost = urldata.find_all('td', {'class': 'col-cost'}).text
-    cardattack = urldata.find_all('td', {'class': 'col-attack'}).text
-    cardhealth = urldata.find_all('td', {'class': 'col-health'}).text
+    cardname = urldata.find_all('td', {'class': 'col-name'})
+    cardtype = urldata.find_all('td', {'class': 'col-type'})
+    cardclass = urldata.find_all('td', {'class': 'col-class'})
+    cardcost = urldata.find_all('td', {'class': 'col-cost'})
+    cardattack = urldata.find_all('td', {'class': 'col-attack'})
+    cardhealth = urldata.find_all('td', {'class': 'col-health'})
 
     # Loop to combine all attributes with key=card_name
     for i in range(len(cardname)):
-        cardlist[cardname[i]] = {'class': cardclass[i], 'type': cardtype[i], 'cost': cardcost[i], 'attack': cardattack[i], 'health': cardhealth[i]}
+        cardlist[cardname[i].text.replace('\\r\\n', '')] = {'class': cardclass[i].text.replace('\xa0', ''), 'type': cardtype[i].text, 'cost': cardcost[i].text, 'attack': cardattack[i].text, 'health': cardhealth[i].text}
 
-    print('put data into cardlist')
-    
+    print('serialiseCardData - FINISHED')
+
+
+def testMethod(urldata):
+
+    soup = urldata
+
+    print('test method - BEGIN')
+    #---------------------------------------
+    # TODO: COMPLETE - Get names of card
+    cardnamelist = soup.find_all("h3")
+    # for tag in cardnamelist:
+    #     print(tag.text)
+    #---------------------------------------
+    # TODO: COMPLETE - Get description
+    carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
+    # for item in carddesc:
+    #     print(item.find("p"))
+    #---------------------------------------
+    # TODO: COMPLETE - Get img url
+    cardurllist = soup.find_all("img", class_="hscard-static")  # ['src'] = url
+    # for tag in cardurllist:
+    #     print(tag['src'])
+    #---------------------------------------
+    # TODO: COMPLETE - Download img to directory using card name as filename
+    curdir = os.getcwd()
+    os.makedirs(curdir + '\images', exist_ok=True)
+    for i in range(len(cardnamelist)):
+        # desc = carddesc[i].find("p")
+        desc = re.sub(r'<((/?[bp])|(br/))>', '', str(carddesc[i].find("p")))
+        name = cardnamelist[i].text
+        url = cardurllist[i]['src']
+        cardlist[name] = {'description': desc, 'img': url}
+        if not os.path.isfile('images\\' + name + '.png'):
+            fw = open('images\\' + name + '.png', 'wb')
+            imgfile = urllib.request.urlopen(url)
+            resp = imgfile.read()
+            fw.write(resp)
+            fw.close()
+
+    print('test method - FINISHED')
+
 
 def dumpDataToJson():
 
+    print('Dumping to JSON file - BEGIN')
     # Create JSON object
     jsoncardlist = json.dumps(cardlist, sort_keys=True, indent=4)
 
@@ -62,41 +105,8 @@ def dumpDataToJson():
     except Exception as e:
         print(str(e))
 
-    print('Dumped to JSON file')
+    print('Dumping to JSON file - FINISHED')
 
-
-def testMethod(urldata):
-
-    soup = urldata
-
-    #---------------------------------------
-    # TODO: COMPLETE - Get names of card
-    cardnamelist = soup.find_all("h3")
-    for tag in cardnamelist:
-        print(tag.text)
-    #---------------------------------------
-    # TODO: COMPLETE - Get description
-    carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
-    for item in carddesc:
-        print(item.find("p"))
-    #---------------------------------------
-    # TODO: COMPLETE - Get img url
-    cardurllist = soup.find_all("img", class_="hscard-static")  # ['src'] = url
-    for tag in cardurllist:
-        print(tag['src'])
-    #---------------------------------------
-    # TODO: COMPLETE - Download img to directory using card name as filename
-##    curdir = os.getcwd()
-##    os.makedirs(curdir + '\images', exist_ok=True)
-##    for i in range(len(cardimgname)):
-##        name = cardimgname[i].text
-##        url = cardurllist[i]['src']
-##        print(name + ' ' + cardurllist)
-##        fw = open('images\\' + name + '.png', 'wb')
-##        imgfile = urllib.request.urlopen(url)
-##        resp = imgfile.read()
-##        fw.write(resp)
-##        fw.close()
 
 def main():
     url = 'http://www.hearthpwn.com/cards'
@@ -105,9 +115,12 @@ def main():
     parameters['page'] = 1
     var = getRawUrlData(url, parameters)
     testMethod(var)
-    print()
-    print('done')
-    
+    # parameters['display'] = 1
+    # parameters['page'] = 1
+    # var = getRawUrlData(url, parameters)
+    # serialiseCardData(var)
+    dumpDataToJson()
+
 
 if __name__ == '__main__':
     main()
