@@ -57,22 +57,22 @@ def testMethod(urldata):
     soup = urldata
 
     print('test method - BEGIN')
-    #---------------------------------------
+    # ---------------------------------------
     # TODO: COMPLETE - Get names of card
     cardnamelist = soup.find_all("h3")
     # for tag in cardnamelist:
     #     print(tag.text)
-    #---------------------------------------
+    # ---------------------------------------
     # TODO: COMPLETE - Get description
     carddesc = soup.find_all("td", {'class': 'visual-details-cell'})
     # for item in carddesc:
     #     print(item.find("p"))
-    #---------------------------------------
+    # ---------------------------------------
     # TODO: COMPLETE - Get img url
     cardurllist = soup.find_all("img", class_="hscard-static")  # ['src'] = url
     # for tag in cardurllist:
     #     print(tag['src'])
-    #---------------------------------------
+    # ---------------------------------------
     # TODO: COMPLETE - Download img to directory using card name as filename
     curdir = os.getcwd()
     os.makedirs(curdir + '\images', exist_ok=True)
@@ -81,10 +81,10 @@ def testMethod(urldata):
         desc = re.sub(r'<((/?[bp])|(br/))>', '', str(carddesc[i].find("p")))
         name = cardnamelist[i].text
         url = cardurllist[i]['src']
-        #cardlist[name] = {'description': desc, 'img': url}
+        # cardlist[name] = {'description': desc, 'img': url}
 
         cardlist[name]['description'] = desc
-        #cardlist[name]['url'] = url
+        # cardlist[name]['url'] = url
 
         if not os.path.isfile('images\\' + name + '.png'):
             fw = open('images\\' + name + '.png', 'wb')

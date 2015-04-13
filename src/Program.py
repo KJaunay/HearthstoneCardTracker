@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 
-# TODO: implement search function
+# TODO: implement search function ... and the rest lol
 
 
 class MyGui:
@@ -23,10 +23,14 @@ class MyGui:
 
         self.cardlist_LB = Listbox(cardlist_F)
         self.cardlist_LB.grid(row=1, column=0, columnspan=2, sticky=NSEW)
+        self.cardlist_LB.insert(END, "a list entry")
+        self.populatedeck()
 
+        # TODO: add save command
         self.loaddeck_B = Button(cardlist_F, text='Load')
         self.loaddeck_B.grid(row=2, column=0)
 
+        # TODO: add load command
         self.savedeck_B = Button(cardlist_F, text='Save')
         self.savedeck_B.grid(row=2, column=1)
 
@@ -55,6 +59,7 @@ class MyGui:
         self.cardcost_L.grid(row=4, column=1)
 
     # Objects for current card data points
+    # TODO: display various data points
         self.cardtype = Label(carddata_F, text='Type: ')
         self.cardtype.grid(row=0, column=3)
 
@@ -71,8 +76,17 @@ class MyGui:
         self.cardcost.grid(row=4, column=3)
 
     # Card description frame
+    # TODO: display selected card description
         self.carddescription_L = Label(carddesc_F, text='... Description ... ')
         self.carddescription_L.grid(row=5, column=1, columnspan=2)
+
+    # TODO: populate deck card list
+    def populatedeck(self):
+        print('populate deck')
+        for i in range(1, 10):
+            self.cardlist_LB.insert(END, i)
+
+
 
 
 '''
