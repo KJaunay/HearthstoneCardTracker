@@ -1,7 +1,8 @@
 # HearthstoneCardTracker
 
 HSCT is a program designed to assist Hearthstone players track which cards they have played and which cards have not. 
-By keeping track of cards, players are able to make better decisions about which cards to play, based on what is available.
+By keeping track of cards, players are able to make better decisions about which cards to play, based on what is available. 
+This should help each player improve their game play and as result their winrates
 
 Features:
 - Simple and Intuitive UI design
