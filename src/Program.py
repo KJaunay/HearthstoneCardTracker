@@ -3,6 +3,7 @@ from tkinter import messagebox
 import json
 from pprint import pprint
 
+
 # TODO: implement search function ... and the rest lol
 
 mycardlist = {}
@@ -26,11 +27,8 @@ class MyGui:
 
         self.cardlist_LB = Listbox(cardlist_F)
         self.cardlist_LB.grid(row=1, column=0, columnspan=2, sticky=NSEW)
-        self.cardlist_LB.insert(END, "a list entry")
         self.populatedeck()
-        self.cardlist_LB.select_set(0)
-        self.cardlist_LB.event_generate("<<ListboxSelect>>")
-        self.cardlist_LB.bind("<<ListboxSelect>>", self.listboxbuttonpress)
+        self.cardlist_LB.bind("<<ListboxSelect>>", self.updateselectedcarddata)
 
         # TODO: add save command
         self.loaddeck_B = Button(cardlist_F, text='Load')
@@ -45,6 +43,8 @@ class MyGui:
         self.cardname_L = Label(cardimage_F, textvariable=self.cardname_var)
         self.cardname_L.grid(row=0, column=0, columnspan=2)
 
+
+        # TODO: Change this to first item selected
         self.cardpicture_I = PhotoImage(file='images\Molten Giant.png')
         self.cardpicture_L = Label(cardimage_F, image=self.cardpicture_I)
         self.cardpicture_L.grid(row=1, column=0, columnspan=2)
@@ -103,10 +103,11 @@ class MyGui:
         mycardlist = data
         # pprint(data['Aberration']['attack']) '1'
         
-    def listboxbuttonpress(self, event):
+        
+    def updateselectedcarddata(self, event):
         try:
-            print(self.cardlist_LB.curselection())
             currentselection = self.cardlist_LB.get(self.cardlist_LB.curselection())
+            print(currentselection)
             self.cardname_var.set(currentselection)
             self.cardtype_var.set(mycardlist[currentselection]['type'])
             self.cardclass_var.set(mycardlist[currentselection]['class'])
@@ -114,6 +115,9 @@ class MyGui:
             self.cardhealth_var.set(mycardlist[currentselection]['health'])
             self.cardcost_var.set(mycardlist[currentselection]['cost'])
             self.carddescription_var.set(mycardlist[currentselection]['description'])
+            self.img = PhotoImage(file="images\\"+str(currentselection)+'.png')
+            self.cardpicture_L.configure(image = self.img)
+            
         except Exception as e:
             print('ERROR: ' + str(e))
             
