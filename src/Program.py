@@ -5,21 +5,50 @@ from pprint import pprint
 
 
 # TODO: implement search function ... and the rest lol
+# TODO: update 'current deck' to currently selected deck
 
 mycardlist = {}
 
 class MyGui:
     def __init__(self, master): # master is the 'main' window in this case, passed in as root
         cardlist_F = Frame(master, bg='red')  # define frame in the main window (normally root, but is now master)
-        cardlist_F.grid(row=0, column=0, rowspan=3, sticky=NSEW)
+        cardlist_F.grid(row=0, column=0, rowspan=3, sticky=NSEW, ipadx=20, ipady=20)
         cardimage_F = Frame(master, bg='blue')
-        cardimage_F.grid(row=0, column=1, columnspan=2)
+        cardimage_F.grid(row=0, column=1, columnspan=2, ipadx=20, ipady=20)
         carddatalabels_F = Frame(master, bg='purple')
         carddatalabels_F.grid(row=1, column=1)
         carddata_F = Frame(master, bg='yellow')
         carddata_F.grid(row=1, column=2)
         carddesc_F = Frame(master, bg='green')
         carddesc_F.grid(row=2, column=1, columnspan=2)
+
+    # Objects for main menu
+        self.menu = Menu(master)  # Define a new menu item
+        master.config(menu=self.menu)  # place new menu in window
+    # Objects for file menu
+        self.fileMenu = Menu(self.menu)  # Define new window
+        self.menu.add_cascade(label='File', menu=self.fileMenu) # Add new submenu to main menu
+        self.fileMenu.add_command(label='Open Deck')  # add options to dropdown menu
+        self.fileMenu.add_separator()
+        self.fileMenu.add_command(label='Save Deck')
+        self.fileMenu.add_command(label='Save Deck As ... ')
+        self.fileMenu.add_separator()
+        self.fileMenu.add_command(label='Exit', command=master.quit)
+    # Objects for edit menu
+        self.editMenu = Menu(self.menu)
+        self.menu.add_cascade(label='Edit', menu=self.editMenu)
+        self.editMenu.add_command(label='Force Update')
+        self.editMenu.add_command(label='Clear Current Deck', command=self.clearcurrentdeck)
+    # Objects for help menu
+        self.helpMenu = Menu(self.menu)
+        self.menu.add_cascade(label='Help', menu=self.helpMenu)
+        self.helpMenu.add_command(label='How To')
+        self.helpMenu.add_separator()
+        self.helpMenu.add_command(label='About')
+    
+        
+
+
 
     # Objects for cardframe
         self.deckname_L = Label(cardlist_F, text='Current Deck')
@@ -45,7 +74,7 @@ class MyGui:
 
 
         # TODO: Change this to first item selected
-        self.cardpicture_I = PhotoImage(file='images\Molten Giant.png')
+        self.cardpicture_I = PhotoImage(file='')
         self.cardpicture_L = Label(cardimage_F, image=self.cardpicture_I)
         self.cardpicture_L.grid(row=1, column=0, columnspan=2)
 
@@ -107,7 +136,6 @@ class MyGui:
     def updateselectedcarddata(self, event):
         try:
             currentselection = self.cardlist_LB.get(self.cardlist_LB.curselection())
-            print(currentselection)
             self.cardname_var.set(currentselection)
             self.cardtype_var.set(mycardlist[currentselection]['type'])
             self.cardclass_var.set(mycardlist[currentselection]['class'])
@@ -122,9 +150,14 @@ class MyGui:
             print('ERROR: ' + str(e))
             
         
-   
-
-
+    def clearcurrentdeck(self):
+        popup = tk.Tk()
+        popup.wm_title("!")
+        label = ttk.Label(popup, text=msg, font=NORM_FONT)
+        label.pack(side="top", fill="x", pady=10)
+        B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
+        B1.pack()
+        popup.mainloop()
 
 
 '''
@@ -218,6 +251,8 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
+    root.geometry("450x600")
+    #root.resizable(width=FALSE, height=FALSE)
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
 
