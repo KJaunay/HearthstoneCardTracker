@@ -1,8 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
+import json
+from pprint import pprint
 
 # TODO: implement search function ... and the rest lol
 
+mycardlist = {}
 
 class MyGui:
     def __init__(self, master): # master is the 'main' window in this case, passed in as root
@@ -25,6 +28,9 @@ class MyGui:
         self.cardlist_LB.grid(row=1, column=0, columnspan=2, sticky=NSEW)
         self.cardlist_LB.insert(END, "a list entry")
         self.populatedeck()
+        self.cardlist_LB.select_set(0)
+        self.cardlist_LB.event_generate("<<ListboxSelect>>")
+        self.cardlist_LB.bind("<<ListboxSelect>>", self.listboxbuttonpress)
 
         # TODO: add save command
         self.loaddeck_B = Button(cardlist_F, text='Load')
@@ -35,7 +41,8 @@ class MyGui:
         self.savedeck_B.grid(row=2, column=1)
 
     # Objects for carddetails
-        self.cardname_L = Label(cardimage_F, text='Card Name')
+        self.cardname_var = StringVar()
+        self.cardname_L = Label(cardimage_F, textvariable=self.cardname_var)
         self.cardname_L.grid(row=0, column=0, columnspan=2)
 
         self.cardpicture_I = PhotoImage(file='images\Molten Giant.png')
@@ -59,32 +66,59 @@ class MyGui:
         self.cardcost_L.grid(row=4, column=1)
 
     # Objects for current card data points
-    # TODO: display various data points
-        self.cardtype = Label(carddata_F, text='Type: ')
+        self.cardtype_var = StringVar()
+        self.cardtype = Label(carddata_F, textvariable=self.cardtype_var)
         self.cardtype.grid(row=0, column=3)
 
-        self.cardclass = Label(carddata_F, text='Class: ')
+        self.cardclass_var = StringVar()
+        self.cardclass = Label(carddata_F, textvariable=self.cardclass_var)
         self.cardclass.grid(row=1, column=3)
 
-        self.cardattack = Label(carddata_F, text='Attack: ')
+        self.cardattack_var = StringVar()
+        self.cardattack = Label(carddata_F, textvariable=self.cardattack_var)
         self.cardattack.grid(row=2, column=3)
 
-        self.cardhealth = Label(carddata_F, text='Health: ')
+        self.cardhealth_var = StringVar()
+        self.cardhealth = Label(carddata_F, textvariable=self.cardhealth_var)
         self.cardhealth.grid(row=3, column=3)
 
-        self.cardcost = Label(carddata_F, text='Cost: ')
+        self.cardcost_var = StringVar()
+        self.cardcost = Label(carddata_F, textvariable=self.cardcost_var)
         self.cardcost.grid(row=4, column=3)
 
     # Card description frame
-    # TODO: display selected card description
-        self.carddescription_L = Label(carddesc_F, text='... Description ... ')
+        self.carddescription_var = StringVar()
+        self.carddescription_L = Label(carddesc_F, textvariable=self.carddescription_var)
         self.carddescription_L.grid(row=5, column=1, columnspan=2)
 
     # TODO: populate deck card list
     def populatedeck(self):
-        print('populate deck')
-        for i in range(1, 10):
-            self.cardlist_LB.insert(END, i)
+        with open('deck1.json') as data_file:
+            data = json.loads(data_file.read())
+            
+        for card in data:
+            self.cardlist_LB.insert(END, card)
+        
+        global mycardlist
+        mycardlist = data
+        # pprint(data['Aberration']['attack']) '1'
+        
+    def listboxbuttonpress(self, event):
+        try:
+            print(self.cardlist_LB.curselection())
+            currentselection = self.cardlist_LB.get(self.cardlist_LB.curselection())
+            self.cardname_var.set(currentselection)
+            self.cardtype_var.set(mycardlist[currentselection]['type'])
+            self.cardclass_var.set(mycardlist[currentselection]['class'])
+            self.cardattack_var.set(mycardlist[currentselection]['attack'])
+            self.cardhealth_var.set(mycardlist[currentselection]['health'])
+            self.cardcost_var.set(mycardlist[currentselection]['cost'])
+            self.carddescription_var.set(mycardlist[currentselection]['description'])
+        except Exception as e:
+            print('ERROR: ' + str(e))
+            
+        
+   
 
 
 
