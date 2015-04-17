@@ -4,8 +4,12 @@ import json
 from pprint import pprint
 
 
-# TODO: implement search function ... and the rest lol
-# TODO: update 'current deck' to currently selected deck
+# TODO: Implement search function ... and the rest lol
+# TODO: Update 'current deck' to currently selected deck
+# TODO: Implement load function
+# TODO: Implement save function
+# TODO: Adjust design better
+# TODO: Automatically select first card in deck when it's loaded
 
 mycardlist = {}
 
@@ -56,11 +60,10 @@ class MyGui:
 
         self.cardlist_LB = Listbox(cardlist_F)
         self.cardlist_LB.grid(row=1, column=0, columnspan=2, sticky=NSEW)
-        self.populatedeck()
         self.cardlist_LB.bind("<<ListboxSelect>>", self.updateselectedcarddata)
 
         # TODO: add save command
-        self.loaddeck_B = Button(cardlist_F, text='Load')
+        self.loaddeck_B = Button(cardlist_F, text='Load', command=self.populatedeck)
         self.loaddeck_B.grid(row=2, column=0)
 
         # TODO: add load command
