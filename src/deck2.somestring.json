@@ -1,0 +1,282 @@
+{
+    "Aberration": {
+        "attack": "1",
+        "class": "",
+        "cost": "1",
+        "description": "Charge",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Abomination": {
+        "attack": "4",
+        "class": "",
+        "cost": "5",
+        "description": "Taunt. Deathrattle: Deal 2 damage to ALL characters.",
+        "health": "4",
+        "type": "Minion"
+    },
+    "Abusive Sergeant": {
+        "attack": "2",
+        "class": "",
+        "cost": "1",
+        "description": "Battlecry: Give a minion +2 Attack this turn.",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Acidic Swamp Ooze": {
+        "attack": "3",
+        "class": "",
+        "cost": "2",
+        "description": "Battlecry: Destroy your opponent\\'s weapon.",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Blessing of Wisdom": {
+        "attack": "0",
+        "class": "Paladin",
+        "cost": "1",
+        "description": "Choose a minion. Whenever it attacks, draw a card.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Blingtron 3000": {
+        "attack": "3",
+        "class": "",
+        "cost": "5",
+        "description": "Battlecry: Equip a random weapon for each player.",
+        "health": "4",
+        "type": "Minion"
+    },
+    "Blizzard": {
+        "attack": "0",
+        "class": "Mage",
+        "cost": "6",
+        "description": "Deal 2 damage to all enemy minions and Freeze them.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Blood Fury": {
+        "attack": "3",
+        "class": "Warlock",
+        "cost": "3",
+        "description": "None",
+        "health": "8",
+        "type": "Weapon"
+    },
+    "Blood Imp": {
+        "attack": "0",
+        "class": "Warlock",
+        "cost": "1",
+        "description": "Stealth. At the end of your turn, give another random friendly minion +1 Health.",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Cogmaster's Wrench": {
+        "attack": "1",
+        "class": "Rogue",
+        "cost": "3",
+        "description": "Has +2 Attack while you have a Mech.",
+        "health": "3",
+        "type": "Weapon"
+    },
+    "Cold Blood": {
+        "attack": "0",
+        "class": "Rogue",
+        "cost": "1",
+        "description": "Give a minion +2 Attack. Combo: +4 Attack instead.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Coldlight Oracle": {
+        "attack": "2",
+        "class": "",
+        "cost": "3",
+        "description": "Battlecry: Each player draws 2 cards.",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Coldlight Seer": {
+        "attack": "2",
+        "class": "",
+        "cost": "3",
+        "description": "Battlecry: Give ALL other Murlocs +2 Health.",
+        "health": "3",
+        "type": "Minion"
+    },
+    "Commanding Shout": {
+        "attack": "0",
+        "class": "Warrior",
+        "cost": "2",
+        "description": "Your minions can\\'t be reduced below 1 Health this turn. Draw a card.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Conceal": {
+        "attack": "0",
+        "class": "Rogue",
+        "cost": "1",
+        "description": "Give your minions Stealth until your next turn.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Cone of Cold": {
+        "attack": "0",
+        "class": "Mage",
+        "cost": "4",
+        "description": "Freeze a minion and the minions next to it, and deal 1 damage to them.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Demigod's Favor": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "0",
+        "description": "Give your other minions +2/+2.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Demolisher": {
+        "attack": "1",
+        "class": "",
+        "cost": "3",
+        "description": "At the start of your turn, deal 2 damage to a random enemy.",
+        "health": "4",
+        "type": "Minion"
+    },
+    "Demonfire": {
+        "attack": "0",
+        "class": "Warlock",
+        "cost": "2",
+        "description": "Deal 2 damage to a minion. If it\\xe2\\x80\\x99s a friendly Demon, give it +2/+2 instead.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Demonheart": {
+        "attack": "0",
+        "class": "Warlock",
+        "cost": "5",
+        "description": "Deal 5 damage to a minion.  If it\\'s a friendly Demon, give it +5/+5 instead.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Devilsaur": {
+        "attack": "5",
+        "class": "",
+        "cost": "5",
+        "description": "None",
+        "health": "5",
+        "type": "Minion"
+    },
+    "Emboldener 3000": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "description": "At the end of your turn, give a random minion +1/+1.",
+        "health": "4",
+        "type": "Minion"
+    },
+    "Emerald Drake": {
+        "attack": "7",
+        "class": "Dream",
+        "cost": "4",
+        "description": "None",
+        "health": "6",
+        "type": "Minion"
+    },
+    "Emergency Coolant": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "description": "Freeze a minion.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Emperor Cobra": {
+        "attack": "2",
+        "class": "",
+        "cost": "3",
+        "description": "Destroy any minion damaged by this minion.",
+        "health": "3",
+        "type": "Minion"
+    },
+    "Emperor Thaurissan": {
+        "attack": "5",
+        "class": "",
+        "cost": "6",
+        "description": "At the end of your turn, reduce the Cost of cards in your hand by (1).",
+        "health": "5",
+        "type": "Minion"
+    },
+    "Enhance-o Mechano": {
+        "attack": "3",
+        "class": "",
+        "cost": "4",
+        "description": "Battlecry: Give your other minions Windfury, Taunt, or Divine Shield.<i>(at random)</i>",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Enrage": {
+        "attack": "0",
+        "class": "",
+        "cost": "3",
+        "description": "Give your hero +6 Attack this turn.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Equality": {
+        "attack": "0",
+        "class": "Paladin",
+        "cost": "2",
+        "description": "Change the Health of ALL minions to 1.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Haunted Creeper": {
+        "attack": "1",
+        "class": "",
+        "cost": "2",
+        "description": "Deathrattle: Summon two 1/1 Spectral Spiders.",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Headcrack": {
+        "attack": "0",
+        "class": "Rogue",
+        "cost": "3",
+        "description": "Deal 2 damage to the enemy hero. Combo: Return this to your hand next turn.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Healing Totem": {
+        "attack": "0",
+        "class": "Shaman",
+        "cost": "1",
+        "description": "At the end of your turn, restore 1 Health to all friendly minions.",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Healing Touch": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "3",
+        "description": "Restore #8 Health.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Heavy Axe": {
+        "attack": "1",
+        "class": "Warrior",
+        "cost": "1",
+        "description": "None",
+        "health": "3",
+        "type": "Weapon"
+    },
+    "Hellfire": {
+        "attack": "0",
+        "class": "Warlock",
+        "cost": "4",
+        "description": "Deal 3 damage to ALL characters.",
+        "health": "0",
+        "type": "Ability"
+    }
+}

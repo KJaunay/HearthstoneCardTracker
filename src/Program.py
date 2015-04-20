@@ -1,102 +1,148 @@
 from tkinter import *
+from tkinter import filedialog
 from tkinter import messagebox
+import tkinter.font as tkfont
 import json
-from pprint import pprint
+import os
+
+# TODO: Implement radio buttons to select/deselect each card :/
+# TODO: Create list of 'current' cards
+# TODO: Comment code
+# TODO: Implement save feature
 
 
-# TODO: Implement search function ... and the rest lol
-# TODO: Update 'current deck' to currently selected deck
-# TODO: Implement load function
-# TODO: Implement save function
-# TODO: Adjust design better
-# TODO: Automatically select first card in deck when it's loaded
+# TODO: TODAYS OBJECTIVES
+# ---------------COMPLETED-----------------------
+#       Implement scrollbar
+#       Increase size of cardlist
+#       Increase listbox font size
+#       Finish about method
+#       Automatically select first card in deck when it's loaded
+#       Adjust description so it soft wraps
+#       Implement search function
+#       Implement clear current list function
+#       Implement 'Load Deck' function
+#       Update 'current deck' to currently selected deck
+# ---------------CURRENT-----------------------
+
 
 mycardlist = {}
 
+
 class MyGui:
-    def __init__(self, master): # master is the 'main' window in this case, passed in as root
+    def __init__(self, master):  # master is the 'main' window in this case, passed in as root
+
+        # Named Fonts
+        self.cardlist_font = tkfont.Font(family='Helvetica', size=10)
+        self.datalabels_font = tkfont.Font(family='Courier New', size=8, weight=tkfont.BOLD)
+        self.decktitle_font = tkfont.Font(family='MS Sans Serif', size=15)
+        self.carddesc_font = tkfont.Font(family='Verdana', size=10)
+
         cardlist_F = Frame(master, bg='red')  # define frame in the main window (normally root, but is now master)
         cardlist_F.grid(row=0, column=0, rowspan=3, sticky=NSEW, ipadx=20, ipady=20)
+
         cardimage_F = Frame(master, bg='blue')
         cardimage_F.grid(row=0, column=1, columnspan=2, ipadx=20, ipady=20)
-        carddatalabels_F = Frame(master, bg='purple')
-        carddatalabels_F.grid(row=1, column=1)
-        carddata_F = Frame(master, bg='yellow')
-        carddata_F.grid(row=1, column=2)
-        carddesc_F = Frame(master, bg='green')
-        carddesc_F.grid(row=2, column=1, columnspan=2)
 
+        carddatalabels_F = Frame(master, bg='purple')
+        carddatalabels_F.grid(row=1, column=1, sticky=NSEW)
+
+        carddata_F = Frame(master, bg='yellow')
+        carddata_F.grid(row=1, column=2, sticky=NSEW)
+
+        carddesc_F = Frame(master, bg='green')
+        carddesc_F.grid(row=2, column=1, columnspan=2, sticky=EW)
+
+# -------------------------------------------------------------------------------------
     # Objects for main menu
         self.menu = Menu(master)  # Define a new menu item
         master.config(menu=self.menu)  # place new menu in window
     # Objects for file menu
         self.fileMenu = Menu(self.menu)  # Define new window
-        self.menu.add_cascade(label='File', menu=self.fileMenu) # Add new submenu to main menu
-        self.fileMenu.add_command(label='Open Deck')  # add options to dropdown menu
+        self.menu.add_cascade(label='File', menu=self.fileMenu)  # Add new submenu to main menu
+        self.fileMenu.add_command(label='Open Deck', command=self.opendeck)  # add options to dropdown menu
         self.fileMenu.add_separator()
         self.fileMenu.add_command(label='Save Deck')
-        self.fileMenu.add_command(label='Save Deck As ... ')
+        self.fileMenu.add_command(label='Save Deck As ... ', command=self.savedeck)
         self.fileMenu.add_separator()
         self.fileMenu.add_command(label='Exit', command=master.quit)
     # Objects for edit menu
         self.editMenu = Menu(self.menu)
         self.menu.add_cascade(label='Edit', menu=self.editMenu)
-        self.editMenu.add_command(label='Force Update')
+        self.editMenu.add_command(label='Force Update', command=self.notyetimplemented)
         self.editMenu.add_command(label='Clear Current Deck', command=self.clearcurrentdeck)
     # Objects for help menu
         self.helpMenu = Menu(self.menu)
         self.menu.add_cascade(label='Help', menu=self.helpMenu)
         self.helpMenu.add_command(label='How To')
         self.helpMenu.add_separator()
-        self.helpMenu.add_command(label='About')
-    
-        
+        self.helpMenu.add_command(label='About', command=self.aboutpopup)
 
-
-
-    # Objects for cardframe
-        self.deckname_L = Label(cardlist_F, text='Current Deck')
+# -------------------------------------------------------------------------------------
+    # Objects for cardlist frame
+        self.deckname_var = StringVar()
+        self.deckname_L = Label(cardlist_F, textvariable=self.deckname_var)
         self.deckname_L.grid(row=0, column=0, columnspan=2)
+        self.deckname_L.config(font=self.decktitle_font)
+
+        self.searchvar = StringVar()
+        self.searchvar.trace("w", lambda name, index, mode: self.searchcards())
+        self.searchbox_E = Entry(cardlist_F, textvariable=self.searchvar)
+        self.searchbox_E.grid(row=1, column=0, columnspan=2)
+        self.searchbox_E.config(width=20)
 
         self.cardlist_LB = Listbox(cardlist_F)
-        self.cardlist_LB.grid(row=1, column=0, columnspan=2, sticky=NSEW)
+        self.cardlist_LB.grid(row=2, column=0, columnspan=2, sticky=NSEW)
         self.cardlist_LB.bind("<<ListboxSelect>>", self.updateselectedcarddata)
+        self.cardlist_LB.config(height=27, font=self.cardlist_font)
+
+        self.decklist_SB = Scrollbar(cardlist_F, orient=VERTICAL)
+        self.decklist_SB.config(command=self.cardlist_LB.yview)
+        self.decklist_SB.grid(row=2, column=2, sticky=NS)
+
+        self.cardlist_LB.config(yscrollcommand=self.decklist_SB.set)
+
+        self.loaddeck_B = Button(cardlist_F, text='Load', command=self.populatedeck)
+        self.loaddeck_B.grid(row=3, column=0)
 
         # TODO: add save command
-        self.loaddeck_B = Button(cardlist_F, text='Load', command=self.populatedeck)
-        self.loaddeck_B.grid(row=2, column=0)
-
-        # TODO: add load command
         self.savedeck_B = Button(cardlist_F, text='Save')
-        self.savedeck_B.grid(row=2, column=1)
+        self.savedeck_B.grid(row=3, column=1)
 
+# -------------------------------------------------------------------------------------
     # Objects for carddetails
         self.cardname_var = StringVar()
         self.cardname_L = Label(cardimage_F, textvariable=self.cardname_var)
         self.cardname_L.grid(row=0, column=0, columnspan=2)
+        self.cardname_L.config(font=self.decktitle_font)
 
-
-        # TODO: Change this to first item selected
         self.cardpicture_I = PhotoImage(file='')
         self.cardpicture_L = Label(cardimage_F, image=self.cardpicture_I)
         self.cardpicture_L.grid(row=1, column=0, columnspan=2)
 
+# -------------------------------------------------------------------------------------
     # Objects for card data labels
         self.cardtype_L = Label(carddatalabels_F, text='Type: ')
         self.cardtype_L.grid(row=0, column=1)
+        self.cardtype_L.config(font=self.datalabels_font)
 
         self.cardclass_L = Label(carddatalabels_F, text='Class: ')
         self.cardclass_L.grid(row=1, column=1)
+        self.cardclass_L.config(font=self.datalabels_font)
 
         self.cardattack_L = Label(carddatalabels_F, text='Attack: ')
         self.cardattack_L.grid(row=2, column=1)
+        self.cardattack_L.config(font=self.datalabels_font)
 
         self.cardhealth_L = Label(carddatalabels_F, text='Health: ')
         self.cardhealth_L.grid(row=3, column=1)
+        self.cardhealth_L.config(font=self.datalabels_font)
 
         self.cardcost_L = Label(carddatalabels_F, text='Cost: ')
         self.cardcost_L.grid(row=4, column=1)
+        self.cardcost_L.config(font=self.datalabels_font)
 
+# -------------------------------------------------------------------------------------
     # Objects for current card data points
         self.cardtype_var = StringVar()
         self.cardtype = Label(carddata_F, textvariable=self.cardtype_var)
@@ -118,13 +164,60 @@ class MyGui:
         self.cardcost = Label(carddata_F, textvariable=self.cardcost_var)
         self.cardcost.grid(row=4, column=3)
 
+# -------------------------------------------------------------------------------------
     # Card description frame
         self.carddescription_var = StringVar()
         self.carddescription_L = Label(carddesc_F, textvariable=self.carddescription_var)
-        self.carddescription_L.grid(row=5, column=1, columnspan=2)
+        self.carddescription_L.pack()
+        self.carddescription_L.config(font=self.carddesc_font, wraplength=340, anchor=CENTER, justify=CENTER)
 
-    # TODO: populate deck card list
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+    def savedeck(self):
+        print('save deck')
+        # filedialog.asksaveasfile()
+
+    def opendeck(self):
+        deckname = filedialog.askopenfilename(filetypes=(("JSON files", "*.json"), ("All files", "*.*")))
+        selecteddeck = os.path.splitext(os.path.basename(deckname))[0].title()
+        self.deckname_var.set(selecteddeck)
+        with open(deckname) as data_file:
+            data = json.loads(data_file.read())
+
+        for card in data:
+            self.cardlist_LB.insert(END, card)
+
+        global mycardlist
+        mycardlist = data
+        # pprint(data['Aberration']['attack']) '1'
+
+        # selects first item in list
+        self.cardlist_LB.select_set(0)
+        self.cardlist_LB.event_generate("<<ListboxSelect>>")
+
+    def clearcurrentdeck(self):
+        self.cardlist_LB.delete(0, END)
+
+    def searchcards(self):
+
+        search_term = self.searchvar.get()
+        file = open('deck1.json')
+        datalist = json.loads(file.read())
+
+        self.cardlist_LB.delete(0, END)  # Clear current cardlist
+
+        for item in datalist:
+            if search_term.lower() in item.lower():  # String.lower returns lowercase string
+                self.cardlist_LB.insert(END, item)
+
     def populatedeck(self):
+
+        self.cardlist_LB.delete(0, END)  # Clear current cardlist
+
         with open('deck1.json') as data_file:
             data = json.loads(data_file.read())
             
@@ -134,8 +227,11 @@ class MyGui:
         global mycardlist
         mycardlist = data
         # pprint(data['Aberration']['attack']) '1'
-        
-        
+
+        # selects first item in list
+        self.cardlist_LB.select_set(0)
+        self.cardlist_LB.event_generate("<<ListboxSelect>>")
+
     def updateselectedcarddata(self, event):
         try:
             currentselection = self.cardlist_LB.get(self.cardlist_LB.curselection())
@@ -146,79 +242,38 @@ class MyGui:
             self.cardhealth_var.set(mycardlist[currentselection]['health'])
             self.cardcost_var.set(mycardlist[currentselection]['cost'])
             self.carddescription_var.set(mycardlist[currentselection]['description'])
-            self.img = PhotoImage(file="images\\"+str(currentselection)+'.png')
-            self.cardpicture_L.configure(image = self.img)
+            self.img = PhotoImage(file="images\\" + str(currentselection) + '.png')
+            self.cardpicture_L.configure(image=self.img)
             
         except Exception as e:
             print('ERROR: ' + str(e))
-            
-        
-    def clearcurrentdeck(self):
-        popup = tk.Tk()
-        popup.wm_title("!")
-        label = ttk.Label(popup, text=msg, font=NORM_FONT)
-        label.pack(side="top", fill="x", pady=10)
-        B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
-        B1.pack()
+
+    def aboutpopup(self):
+        about_name = '''Developed by Kieran Jaunay'''
+        about_contact = '''Please contact k.jaunay@gmail.com with \nany questions or feedback'''
+        popup = Tk()
+        popup.geometry("300x120")
+        popup.wm_title("About")
+        name_L = Label(popup, text=about_name)
+        name_L.pack(side="top", fill="x", pady=10)
+        contact_L = Label(popup, text=about_contact)
+        contact_L.pack(fill='x', pady=10)
+        B1 = Button(popup, text="Close", command=popup.destroy)
+        B1.pack(side="bottom")
         popup.mainloop()
+
+    def notyetimplemented(self):
+        questionpopup = messagebox.showinfo('Error', 'Feature not yet implemented')
+
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
 
 
 '''
-    # Make a main menu at the top
-        self.menu = Menu(master)
-        master.config(menu=self.menu)
-
-    # Define each menu option
-        self.subMenu = Menu(self.menu)  # define menu
-        self.menu.add_cascade(label='File', menu=self.subMenu) # create dropdown submenu in main menu bar
-        self.subMenu.add_command(label='Open')  # add option to dropdown submenu
-        self.subMenu.add_separator() # add separator line to drop down menu
-        self.subMenu.add_command(label='Exit', command=master.quit) # add option to dropdown submenu
-
-        self.editMenu = Menu(self.menu) # define menu
-        self.menu.add_cascade(label='edit', menu=self.editMenu) # create dropdown editmenu in main menu bar
-        self.editMenu.add_command(label='yoza') # add option to dropdown edit menu
-
-    # define labels
-        self.name_L = Label(frame, text='Username')
-        self.name_L.grid(row=0, column=0)
-        self.pass_L = Label(frame, text='Password')
-        self.pass_L.grid(row=1, column=0)
-
-    # define entries (textbox)
-        self.entry_u = Entry(frame)
-        self.entry_u.grid(row=0, column=1)
-        self.entry_p = Entry(frame)
-        self.entry_p.grid(row=1, column=1)
-
-    # define buttons
-        self.submit_B = Button(frame, text='Submit', command=self.loginMsg) # command = function to be called when clicked
-        self.submit_B.grid(row=2, column=0, sticky=E)   # stick to the East
-        self.quit_B = Button(frame, text='Quit', command=frame.quit)
-        self.quit_B.grid(row=2, column=1)
-
-    # add content to toolbar
-        self.toolbar_B = Button(toolbar, text='Toolbar', command=self.toolbarPrint)
-        self.toolbar_B.grid()
-
-    # define status bar at the bottom
-        self.status_L = Label(master, text='Preparing for nothing...', bd=1, relief=SUNKEN, anchor=W)    # bd = border size, sunken = sunken into screen, anchor WEST
-        self.status_L.grid()
-
-    # define and render a photo
-        self.photo = PhotoImage(file='Ok-icon.png')
-        self.photo_L = Label(frame, image=self.photo)
-        self.photo_L.grid()
-
-    # Listbox
-        self.listbox = Listbox(frame)
-        self.listbox.grid()
-
-        self.listbox.insert(END, "a list entry")
-
-        for item in ["one", "two", "three", "four"]:
-            self.listbox.insert(END, item)
-
     # define popup message
         tkinter.messagebox.showinfo('some title', 'some content')
 
@@ -240,21 +295,12 @@ class MyGui:
         redLine = canvas.create_line(0,100,200,50, fill='red')
         # Delete graphic object
         canvas.delete(redLine) #Using (ALL) deletes all objects on the canvas
-
-
-    def loginMsg(self):
-        print('You have successfully logged in')
-
-    def toolbarPrint(self):
-        print('Toolbar :)')
 '''
-######END OF MYGUI CLASS######
-
 
 def main():
     root = Tk()
     root.title("PyGuiTest")
-    root.geometry("450x600")
+    root.geometry("650x650")
     #root.resizable(width=FALSE, height=FALSE)
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()

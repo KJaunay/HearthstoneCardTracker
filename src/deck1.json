@@ -62,5 +62,157 @@
         "description": "Hero PowerActivate Magmatron!",
         "health": "0",
         "type": "Hero Power"
+    },
+    "Swipe": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "4",
+        "description": "Deal 4 damage to an enemy and 1 damage to all other enemies.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Sword of Justice": {
+        "attack": "1",
+        "class": "Paladin",
+        "cost": "3",
+        "description": "Whenever you summon a minion, give it +1/+1 and this loses 1 Durability.",
+        "health": "5",
+        "type": "Weapon"
+    },
+    "Sylvanas Windrunner": {
+        "attack": "5",
+        "class": "",
+        "cost": "6",
+        "description": "Deathrattle: Take control of a random enemy minion.",
+        "health": "5",
+        "type": "Minion"
+    },
+    "TIME FOR SMASH": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "description": "Deal 5 damage to a random enemy. Gain 5 Armor.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Tail Swipe": {
+        "attack": "0",
+        "class": "",
+        "cost": "4",
+        "description": "Deal 4 damage.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Tank Mode": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "0",
+        "description": "+1 Health.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Transcendence": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "description": "Until you kill Cho\\'s minions, he can\\'t be attacked.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Treant": {
+        "attack": "2",
+        "class": "Druid",
+        "cost": "1",
+        "description": "Taunt",
+        "health": "2",
+        "type": "Minion"
+    },
+    "Tree of Life": {
+        "attack": "0",
+        "class": "Druid",
+        "cost": "9",
+        "description": "Restore all characters to full Health.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Troggzor the Earthinator": {
+        "attack": "6",
+        "class": "",
+        "cost": "7",
+        "description": "Whenever your opponent casts a spell, summon a Burly Rockjaw Trogg.",
+        "health": "6",
+        "type": "Minion"
+    },
+    "True Form": {
+        "attack": "0",
+        "class": "",
+        "cost": "1",
+        "description": "Hero PowerLet the games begin!",
+        "health": "0",
+        "type": "Hero Power"
+    },
+    "Truesilver Champion": {
+        "attack": "4",
+        "class": "Paladin",
+        "cost": "4",
+        "description": "Whenever your hero attacks, restore 2 Health to it.",
+        "health": "2",
+        "type": "Weapon"
+    },
+    "Vanish": {
+        "attack": "0",
+        "class": "Rogue",
+        "cost": "6",
+        "description": "Return all minions to their owner\\'s hand.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Vaporize": {
+        "attack": "0",
+        "class": "Mage",
+        "cost": "3",
+        "description": "Secret: When a minion attacks your hero, destroy it.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Velen's Chosen": {
+        "attack": "0",
+        "class": "Priest",
+        "cost": "3",
+        "description": "Give a minion +2/+4 and Spell Damage +1.",
+        "health": "0",
+        "type": "Ability"
+    },
+    "Venture Co. Mercenary": {
+        "attack": "7",
+        "class": "",
+        "cost": "5",
+        "description": "Your minions cost (3) more.",
+        "health": "6",
+        "type": "Minion"
+    },
+    "Violet Apprentice": {
+        "attack": "1",
+        "class": "",
+        "cost": "0",
+        "description": "None",
+        "health": "1",
+        "type": "Minion"
+    },
+    "Violet Teacher": {
+        "attack": "3",
+        "class": "",
+        "cost": "4",
+        "description": "Whenever you cast a spell, summon a 1/1 Violet Apprentice.",
+        "health": "5",
+        "type": "Minion"
+    },
+    "Vitality Totem": {
+        "attack": "0",
+        "class": "Shaman",
+        "cost": "2",
+        "description": "At the end of your turn, restore 4 Health to your hero.",
+        "health": "3",
+        "type": "Minion"
     }
 }
