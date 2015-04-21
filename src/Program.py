@@ -10,21 +10,14 @@ import os
 # TODO: Comment code
 # TODO: Implement save feature
 
+# QTRL+Q (quick documentation)
+
 
 # TODO: TODAYS OBJECTIVES
 # ---------------COMPLETED-----------------------
-#       Implement scrollbar
-#       Increase size of cardlist
-#       Increase listbox font size
-#       Finish about method
-#       Automatically select first card in deck when it's loaded
-#       Adjust description so it soft wraps
-#       Implement search function
-#       Implement clear current list function
-#       Implement 'Load Deck' function
-#       Update 'current deck' to currently selected deck
-# ---------------CURRENT-----------------------
 
+# ---------------CURRENT-----------------------
+#       Use PyCharm with Github
 
 mycardlist = {}
 
