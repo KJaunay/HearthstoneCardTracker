@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter import messagebox
+import pprint
 import tkinter.font as tkfont
 import json
 import os
@@ -8,27 +9,41 @@ import os
 # TODO: Implement radio buttons to select/deselect each card :/
 # TODO: Create list of 'current' cards
 # TODO: Comment code
-# TODO: Implement save feature
+# TODO: Implement 'save' function
+# TODO: Implement feature to detect changes and edits to cardlist
+# TODO: Sort imported cards
+# TODO: Add feature to build deck
 
 # QTRL+Q (quick documentation)
-
+# CTRL+SHIFT+ALT+N (quick find method)
 
 # TODO: TODAYS OBJECTIVES
 # ---------------COMPLETED-----------------------
-
-# ---------------CURRENT-----------------------
 #       Use PyCharm with Github
+#       Debug error when loading deck - Turned out I wasn't clearing the deck in my 'new' open deck method
+#       Implement 'Save As' Function
+#       Implement 'New Deck' feature
+# ---------------CURRENT-----------------------
+#
 
 mycardlist = {}
-
 
 class MyGui:
     def __init__(self, master):  # master is the 'main' window in this case, passed in as root
 
         # Named Fonts
-        self.cardlist_font = tkfont.Font(family='Helvetica', size=10)
+        # family: The font family name as a string.
+        # size: The font height as an integer in points. To get a font n pixels high, use -n.
+        # weight: "bold" for boldface, "normal" for regular weight.
+        # slant: "italic" for italic, "roman" for unslanted.
+        # underline: 1 for underlined text, 0 for normal.
+        # overstrike: 1 for overstruck text, 0 for normal.
+
+
+
+        self.cardlist_font = tkfont.Font(family='Helvetica', size=11, slant=tkfont.ITALIC, overstrike=1)
         self.datalabels_font = tkfont.Font(family='Courier New', size=8, weight=tkfont.BOLD)
-        self.decktitle_font = tkfont.Font(family='MS Sans Serif', size=15)
+        self.decktitle_font = tkfont.Font(family='MS Sans Serif', size=15, underline=1)
         self.carddesc_font = tkfont.Font(family='Verdana', size=10)
 
         cardlist_F = Frame(master, bg='red')  # define frame in the main window (normally root, but is now master)
@@ -53,10 +68,11 @@ class MyGui:
     # Objects for file menu
         self.fileMenu = Menu(self.menu)  # Define new window
         self.menu.add_cascade(label='File', menu=self.fileMenu)  # Add new submenu to main menu
+        self.fileMenu.add_command(label='New Deck', command=self.newdeck)
         self.fileMenu.add_command(label='Open Deck', command=self.opendeck)  # add options to dropdown menu
         self.fileMenu.add_separator()
         self.fileMenu.add_command(label='Save Deck')
-        self.fileMenu.add_command(label='Save Deck As ... ', command=self.savedeck)
+        self.fileMenu.add_command(label='Save Deck As ... ', command=self.savedeckas)
         self.fileMenu.add_separator()
         self.fileMenu.add_command(label='Exit', command=master.quit)
     # Objects for edit menu
@@ -95,7 +111,7 @@ class MyGui:
 
         self.cardlist_LB.config(yscrollcommand=self.decklist_SB.set)
 
-        self.loaddeck_B = Button(cardlist_F, text='Load', command=self.populatedeck)
+        self.loaddeck_B = Button(cardlist_F, text='Load', command=self.opendeck)
         self.loaddeck_B.grid(row=3, column=0)
 
         # TODO: add save command
@@ -170,23 +186,36 @@ class MyGui:
 # -------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------
-    def savedeck(self):
-        print('save deck')
-        # filedialog.asksaveasfile()
+    def newdeck(self):
+        # remove deck title replace with generic "deck%d*"
+        self.deckname_var.set("New Deck*")
+        # clear current cards in listbox
+        self.cardlist_LB.delete(0, END)
+
+    def savedeckas(self):
+
+        savefile = filedialog.asksaveasfile(defaultextension='.JSON', mode='w')
+        if savefile is None:  # If operation is 'canceled'
+            return
+
+        savefile.write(json.dumps(mycardlist))
+        savefile.close()
 
     def opendeck(self):
         deckname = filedialog.askopenfilename(filetypes=(("JSON files", "*.json"), ("All files", "*.*")))
         selecteddeck = os.path.splitext(os.path.basename(deckname))[0].title()
         self.deckname_var.set(selecteddeck)
+
         with open(deckname) as data_file:
             data = json.loads(data_file.read())
+
+        self.cardlist_LB.delete(0, END)  # Clear current cardlist
 
         for card in data:
             self.cardlist_LB.insert(END, card)
 
         global mycardlist
         mycardlist = data
-        # pprint(data['Aberration']['attack']) '1'
 
         # selects first item in list
         self.cardlist_LB.select_set(0)
@@ -196,7 +225,6 @@ class MyGui:
         self.cardlist_LB.delete(0, END)
 
     def searchcards(self):
-
         search_term = self.searchvar.get()
         file = open('deck1.json')
         datalist = json.loads(file.read())
@@ -206,24 +234,6 @@ class MyGui:
         for item in datalist:
             if search_term.lower() in item.lower():  # String.lower returns lowercase string
                 self.cardlist_LB.insert(END, item)
-
-    def populatedeck(self):
-
-        self.cardlist_LB.delete(0, END)  # Clear current cardlist
-
-        with open('deck1.json') as data_file:
-            data = json.loads(data_file.read())
-            
-        for card in data:
-            self.cardlist_LB.insert(END, card)
-        
-        global mycardlist
-        mycardlist = data
-        # pprint(data['Aberration']['attack']) '1'
-
-        # selects first item in list
-        self.cardlist_LB.select_set(0)
-        self.cardlist_LB.event_generate("<<ListboxSelect>>")
 
     def updateselectedcarddata(self, event):
         try:
@@ -239,7 +249,7 @@ class MyGui:
             self.cardpicture_L.configure(image=self.img)
             
         except Exception as e:
-            print('ERROR: ' + str(e))
+            print("ERROR: {0}".format(e))
 
     def aboutpopup(self):
         about_name = '''Developed by Kieran Jaunay'''
@@ -289,6 +299,8 @@ class MyGui:
         # Delete graphic object
         canvas.delete(redLine) #Using (ALL) deletes all objects on the canvas
 '''
+
+
 
 def main():
     root = Tk()
