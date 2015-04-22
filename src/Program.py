@@ -6,7 +6,8 @@ import tkinter.font as tkfont
 import json
 import os
 
-# TODO: Implement radio buttons to select/deselect each card :/
+# TODO: Implement functionality to keep track of number of each card
+# TODO: Add total num cards to deckbuilder
 # TODO: Create list of 'current' cards
 # TODO: Comment code
 # TODO: Implement 'save' function
@@ -19,14 +20,14 @@ import os
 
 # TODO: TODAYS OBJECTIVES
 # ---------------COMPLETED-----------------------
-#
-# ---------------CURRENT-----------------------
 #       Add feature to build deck
 #           - Add two new frames to contain shift buttons and the ListBox - DONE
 #           - Add new ListBox to act as new deck - DONE
 #           - Add the four buttons to shift cards to and from new deck - DONE
 #           - Change ListboxSelect event handler to detect which - DONE
 #           - Created and called method to fill allcardlist and display it
+# ---------------CURRENT-----------------------
+#           - Add functionality to shift buttons
 
 
 usercardlist = {}
@@ -78,7 +79,7 @@ class MyGui:
 
 # -------------------------------------------------------------------------------------
         completecardlist_F = Frame(master, bg='yellow')
-        completecardlist_F.grid(row=0, column=0)
+        completecardlist_F.grid(row=0, column=0, ipadx=20)
 
         # Search function entry
         self.searchvar = StringVar()
@@ -95,7 +96,7 @@ class MyGui:
 
 # -------------------------------------------------------------------------------------
         shiftbuttons_F = Frame(master, bg='cyan')
-        shiftbuttons_F.grid(row=0, column=5, sticky=NS)
+        shiftbuttons_F.grid(row=0, column=5, sticky=NS, ipadx=20)
 
         # single right shift button
         self.shiftsingleright_B = Button(shiftbuttons_F, text='>')
@@ -281,7 +282,7 @@ class MyGui:
         global allcardlist
         global usercardlist
 
-        if (obj == "allcards"):
+        if obj == "allcards":
             listbox = self.allcards_LB
             listvar = allcardlist
         else:
@@ -354,7 +355,7 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
-    root.geometry("650x650")
+    root.geometry("750x650")
     #root.resizable(width=FALSE, height=FALSE)
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
