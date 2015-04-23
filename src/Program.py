@@ -7,27 +7,30 @@ import json
 import os
 
 # TODO: Implement functionality to keep track of number of each card
-# TODO: Add visual of total num cards
-# TODO: Create list of 'current' cards
 # TODO: Comment code
 # TODO: Implement 'save' function
-# TODO: Implement feature to detect changes and edits to cardlist
 # TODO: Sort imported cards
-# TODO: Add functionality to shift buttons
+# TODO: Remove hero powers etc from decklist (may be problem with scraper)
+# TODO: Implement feature to detect changes and edits to cardlist
+#           - Throw custom event
+#           - Add * to deck name
+#           - Prompt for 'Save' when closing
 
 # QTRL+Q (quick documentation)
 # CTRL+SHIFT+ALT+N (quick find method)
+# ALT+MOUSE DRAG (column select)
 
 # TODO: TODAYS OBJECTIVES
 # ---------------COMPLETED-----------------------
-#       Add feature to build deck
-#           - Add two new frames to contain shift buttons and the ListBox - DONE
-#           - Add new ListBox to act as new deck - DONE
-#           - Add the four buttons to shift cards to and from new deck - DONE
-#           - Change ListboxSelect event handler to detect which - DONE
-#           - Created and called method to fill allcardlist and display it
+#       Add count of total num cards in user deck
 # ---------------CURRENT-----------------------
-#       Add Scrollbar to allcardlist
+#       Add functionality to shift buttons
+#           - Single right
+#               - Add card to LB and to usercardlist - DONE
+#               - Limit to maximum 2 cards - Currently limited to 1
+#           - Single left - DONE
+#           - All right
+#           - All left - DONE
 
 
 usercardlist = {}
@@ -104,19 +107,19 @@ class MyGui:
         shiftbuttons_F.grid(row=0, column=5, padx=10, pady=10)
 
         # single right shift button
-        self.shiftsingleright_B = Button(shiftbuttons_F, text='>')
+        self.shiftsingleright_B = Button(shiftbuttons_F, text='>', command=self.shiftsingleright)
         self.shiftsingleright_B.grid(row=0, column=0, sticky=EW, padx=5, pady=5)
         
         # single left shift button
-        self.shiftsingleleft_B = Button(shiftbuttons_F, text='<')
+        self.shiftsingleleft_B = Button(shiftbuttons_F, text='<', command=self.shiftsingleleft)
         self.shiftsingleleft_B.grid(row=5, column=0, sticky=EW, padx=5, pady=5)
 
         # shift all right button
-        self.shiftallright_B = Button(shiftbuttons_F, text='>>')
+        self.shiftallright_B = Button(shiftbuttons_F, text='>>', command=self.shiftallright)
         self.shiftallright_B.grid(row=10, column=0, padx=5, pady=5)
 
         # shift all left button
-        self.shiftallleft_B = Button(shiftbuttons_F, text='<<')
+        self.shiftallleft_B = Button(shiftbuttons_F, text='<<', command=self.shiftallleft)
         self.shiftallleft_B.grid(row=15, column=0, padx=5, pady=5)
 
 # -------------------------------------------------------------------------------------
@@ -134,7 +137,6 @@ class MyGui:
         self.usercardlist_LB.grid(row=5, column=0, columnspan=10, sticky=NSEW)
         self.usercardlist_LB.config(height=30, font=self.cardlist_font)
         self.usercardlist_LB.bind("<<ListboxSelect>>", lambda event, self=self, obj=self.usercardlist_LB: self.updateselectedcarddata(event, obj))
-        
 
         # User card list scrollbar
         self.usercardlist_SB = Scrollbar(usercardlist_F, orient=VERTICAL)
@@ -147,8 +149,13 @@ class MyGui:
         self.loaduserdeck_B.grid(row=10, column=0, sticky=E, padx=30)
 
         # 'Save Deck' button
-        self.saveuserdeck_B = Button(usercardlist_F, text='Save', command=self.loaddeck)
+        self.saveuserdeck_B = Button(usercardlist_F, text='Save', command=self.savedeckas)
         self.saveuserdeck_B.grid(row=10, column=5, sticky=E)
+
+        # Total num cards label
+        self.numcardsvar = StringVar()
+        self.numcards_L = Label(usercardlist_F, textvariable=self.numcardsvar)
+        self.numcards_L.grid(row=15, column=0, columnspan=10)
         
 
 # -------------------------------------------------------------------------------------
@@ -158,68 +165,96 @@ class MyGui:
         # Card title label
         self.cardname_var = StringVar()
         self.cardname_L = Label(carddetail_F, textvariable=self.cardname_var)
-        self.cardname_L.grid(row=0, column=0, columnspan=10)
+        self.cardname_L.grid(row=0, column=0, columnspan=10, pady=5)
         self.cardname_L.config(font=self.decktitle_font)
 
         # Card image label
         self.cardpicture_I = PhotoImage(file='')
         self.cardpicture_L = Label(carddetail_F, image=self.cardpicture_I)
-        self.cardpicture_L.grid(row=5, column=0, columnspan=10)
+        self.cardpicture_L.grid(row=5, column=0, columnspan=10, pady=5)
 
         # Card type labels
         self.cardtype_L = Label(carddetail_F, text='Type: ')
-        self.cardtype_L.grid(row=15, column=0)
+        self.cardtype_L.grid(row=15, column=0, pady=5)
         self.cardtype_L.config(font=self.datalabels_font)
 
         self.cardtype_var = StringVar()
         self.cardtype = Label(carddetail_F, textvariable=self.cardtype_var)
-        self.cardtype.grid(row=15, column=5)
+        self.cardtype.grid(row=15, column=5, pady=5)
 
         # Card class labels
         self.cardclass_L = Label(carddetail_F, text='Class: ')
-        self.cardclass_L.grid(row=20, column=0)
+        self.cardclass_L.grid(row=20, column=0, pady=5)
         self.cardclass_L.config(font=self.datalabels_font)
 
         self.cardclass_var = StringVar()
         self.cardclass = Label(carddetail_F, textvariable=self.cardclass_var)
-        self.cardclass.grid(row=20, column=5)
+        self.cardclass.grid(row=20, column=5, pady=5)
 
         # Card attack labels
         self.cardattack_L = Label(carddetail_F, text='Attack: ')
-        self.cardattack_L.grid(row=25, column=0)
+        self.cardattack_L.grid(row=25, column=0, pady=5)
         self.cardattack_L.config(font=self.datalabels_font)
 
         self.cardattack_var = StringVar()
         self.cardattack = Label(carddetail_F, textvariable=self.cardattack_var)
-        self.cardattack.grid(row=25, column=5)
+        self.cardattack.grid(row=25, column=5, pady=5)
 
         # Card health labels
         self.cardhealth_L = Label(carddetail_F, text='Health: ')
-        self.cardhealth_L.grid(row=30, column=0)
+        self.cardhealth_L.grid(row=30, column=0, pady=5)
         self.cardhealth_L.config(font=self.datalabels_font)
 
         self.cardhealth_var = StringVar()
         self.cardhealth = Label(carddetail_F, textvariable=self.cardhealth_var)
-        self.cardhealth.grid(row=30, column=5)
+        self.cardhealth.grid(row=30, column=5, pady=5)
 
         # Card cost labels
         self.cardcost_L = Label(carddetail_F, text='Cost: ')
-        self.cardcost_L.grid(row=35, column=0)
+        self.cardcost_L.grid(row=35, column=0, pady=5)
         self.cardcost_L.config(font=self.datalabels_font)
 
         self.cardcost_var = StringVar()
         self.cardcost = Label(carddetail_F, textvariable=self.cardcost_var)
-        self.cardcost.grid(row=35, column=5)
+        self.cardcost.grid(row=35, column=5, pady=5)
 
         # Card description label
         self.carddescription_var = StringVar()
         self.carddescription_L = Label(carddetail_F, textvariable=self.carddescription_var)
-        self.carddescription_L.grid(row=40, column=0, columnspan=10)
+        self.carddescription_L.grid(row=40, column=0, columnspan=10, pady=5)
         self.carddescription_L.config(font=self.carddesc_font, wraplength=340, anchor=CENTER, justify=CENTER)
 
         self.fillcardlist()
 
 # -------------------------------------------------------------------------------------
+    def shiftsingleright(self):
+        # get current selection from all cards
+        cardname = self.allcards_LB.get(self.allcards_LB.curselection())  # Gets current card name
+        if cardname not in usercardlist.keys():
+            cardvalues = allcardlist[self.allcards_LB.get(self.allcards_LB.curselection())]
+            # add currently selected card to users cardlist
+            usercardlist[cardname] = cardvalues
+            self.usercardlist_LB.insert(END, cardname)
+        else:
+            None
+
+    def shiftsingleleft(self):
+        # Check to verify card is selected
+        try:
+            # Delete currently selected card
+            self.usercardlist_LB.delete(self.usercardlist_LB.curselection())
+        except Exception as e:
+            print(str(e))
+
+    def shiftallright(self):
+        print('Need to implement')
+
+    def shiftallleft(self):
+        global usercardlist
+        self.usercardlist_LB.delete(0, END)
+        usercardlist = {}
+
+
     def fillcardlist(self):
         file = open("cardlist.json", "r")
         filedump = json.loads(file.read())
@@ -308,6 +343,7 @@ class MyGui:
             self.cardhealth_var.set(listvar[currentselection]['health'])
             self.cardcost_var.set(listvar[currentselection]['cost'])
             self.carddescription_var.set(listvar[currentselection]['description'])
+            self.numcardsvar.set("Total Card Count: {0}".format(self.usercardlist_LB.size()))
         except Exception as e:
             print("ERROR: {0}".format(e))
 
@@ -363,8 +399,9 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
-    root.geometry("800x650")
-    #root.resizable(width=FALSE, height=FALSE)
+    root.geometry("820x680")
+    root.aspect(5,5,5,5)
+    root.resizable(width=FALSE, height=FALSE)
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
 

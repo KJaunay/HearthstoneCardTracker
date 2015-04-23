@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a17b988-ec38-4075-afea-59a11621b2a2" name="Default" comment="Began adding functionality to build a deck. &#10;- Added second Listbox which contains all cards&#10;- Added four buttons to allow user to shift cards between allcardlist and usercardlist&#10;- Changed populatedeck() method to detect from which list card was selected&#10;- Created function to populate allcard Listbox">
+    <list default="true" id="7a17b988-ec38-4075-afea-59a11621b2a2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Program.py" afterPath="$PROJECT_DIR$/src/Program.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,8 +30,8 @@
       <file leaf-file-name="Program.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Program.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38368055" vertical-offset="255" max-vertical-offset="6290">
-              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.5607639" vertical-offset="204" max-vertical-offset="7055">
+              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -58,9 +58,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../PyGuiTest/src/pyguitest.py" />
-        <option value="$PROJECT_DIR$/src/cardlist.json" />
         <option value="$PROJECT_DIR$/src/CardSerialiser.py" />
         <option value="$PROJECT_DIR$/src/deck1.json" />
+        <option value="$PROJECT_DIR$/src/cardlist.json" />
         <option value="$PROJECT_DIR$/src/Program.py" />
       </list>
     </option>
@@ -412,7 +412,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429676464484</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Minor non critical changes">
+      <created>1429689320178</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1429689320178</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -480,7 +486,8 @@
     <MESSAGE value="Test commit using PyCharm" />
     <MESSAGE value="Found and solved a bug when loading cards from the main menu and then the load button. Removed method attached to the 'Load' button and replaced it with the method developed for the 'Load' command in the main menu. Initial testing showed a successful solve. &#10; Implemented a 'Save As' function attached to the main menu option.&#10; Implemented a 'New Deck' feature which is accessible through the main menu." />
     <MESSAGE value="Began adding functionality to build a deck. &#10;- Added second Listbox which contains all cards&#10;- Added four buttons to allow user to shift cards between allcardlist and usercardlist&#10;- Changed populatedeck() method to detect from which list card was selected&#10;- Created function to populate allcard Listbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Began adding functionality to build a deck. &#10;- Added second Listbox which contains all cards&#10;- Added four buttons to allow user to shift cards between allcardlist and usercardlist&#10;- Changed populatedeck() method to detect from which list card was selected&#10;- Created function to populate allcard Listbox" />
+    <MESSAGE value="Minor non critical changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor non critical changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -492,6 +499,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7021">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardlist.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="27474" max-vertical-offset="108511">
+          <caret line="1625" column="5" selection-start-line="1625" selection-start-column="5" selection-end-line="1625" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6290">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardlist.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="27474" max-vertical-offset="108511">
+          <caret line="1625" column="5" selection-start-line="1625" selection-start-column="5" selection-end-line="1625" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Program.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6290">
@@ -798,6 +841,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="12473" max-vertical-offset="13736">
+          <caret line="718" column="0" selection-start-line="718" selection-start-column="0" selection-end-line="718" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cardlist.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="27474" max-vertical-offset="108511">
@@ -806,17 +856,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://C:/Python34/Lib/symbol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="12473" max-vertical-offset="13736">
-          <caret line="718" column="0" selection-start-line="718" selection-start-column="0" selection-end-line="718" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="760" max-vertical-offset="1989">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38368055" vertical-offset="255" max-vertical-offset="6290">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.5607639" vertical-offset="204" max-vertical-offset="7055">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
