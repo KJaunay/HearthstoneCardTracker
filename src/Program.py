@@ -7,13 +7,13 @@ import json
 import os
 
 # TODO: Implement functionality to keep track of number of each card
-# TODO: Add total num cards to deckbuilder
+# TODO: Add visual of total num cards
 # TODO: Create list of 'current' cards
 # TODO: Comment code
 # TODO: Implement 'save' function
 # TODO: Implement feature to detect changes and edits to cardlist
 # TODO: Sort imported cards
-
+# TODO: Add functionality to shift buttons
 
 # QTRL+Q (quick documentation)
 # CTRL+SHIFT+ALT+N (quick find method)
@@ -27,7 +27,7 @@ import os
 #           - Change ListboxSelect event handler to detect which - DONE
 #           - Created and called method to fill allcardlist and display it
 # ---------------CURRENT-----------------------
-#           - Add functionality to shift buttons
+#       Add Scrollbar to allcardlist
 
 
 usercardlist = {}
@@ -72,50 +72,56 @@ class MyGui:
         # slant: "italic" for italic, "roman" for unslanted.
         # underline: 1 for underlined text, 0 for normal.
         # overstrike: 1 for overstruck text, 0 for normal.
-        self.cardlist_font = tkfont.Font(family='Helvetica', size=11, slant=tkfont.ITALIC, overstrike=1)
+        self.cardlist_font = tkfont.Font(family='Helvetica', size=11, slant=tkfont.ITALIC)
         self.datalabels_font = tkfont.Font(family='Courier New', size=8, weight=tkfont.BOLD)
         self.decktitle_font = tkfont.Font(family='MS Sans Serif', size=15, underline=1)
         self.carddesc_font = tkfont.Font(family='Verdana', size=10)
 
 # -------------------------------------------------------------------------------------
         completecardlist_F = Frame(master, bg='yellow')
-        completecardlist_F.grid(row=0, column=0, ipadx=20)
+        completecardlist_F.grid(row=0, column=0, padx=10, pady=10)
 
         # Search function entry
         self.searchvar = StringVar()
         self.searchvar.trace("w", lambda name, index, mode: self.searchcards())
         self.searchbox_E = Entry(completecardlist_F, textvariable=self.searchvar)
         self.searchbox_E.grid(row=0, column=0)
-        self.searchbox_E.config(width=20)
+        self.searchbox_E.config(width=25)
 
         # All cards listbox
         self.allcards_LB = Listbox(completecardlist_F)
         self.allcards_LB.grid(row=5, column=0)
-        # self.allcards_LB.bind("<<ListboxSelect>>", lambda event, obj=hello: self.testeventhandler(event, obj))
+        self.allcards_LB.config(height=30, font=self.cardlist_font)
         self.allcards_LB.bind("<<ListboxSelect>>", lambda event, self=self, obj="allcards": self.updateselectedcarddata(event, obj))
+
+        self.allcards_SB = Scrollbar(completecardlist_F, orient=VERTICAL)
+        self.allcards_SB.grid(row=5, column=10, sticky=NS)
+        self.allcards_SB.config(command=self.allcards_LB.yview)
+        self.allcards_LB.config(yscrollcommand=self.allcards_SB.set)
 
 # -------------------------------------------------------------------------------------
         shiftbuttons_F = Frame(master, bg='cyan')
-        shiftbuttons_F.grid(row=0, column=5, sticky=NS, ipadx=20)
+        shiftbuttons_F.grid(row=0, column=5, padx=10, pady=10)
 
         # single right shift button
         self.shiftsingleright_B = Button(shiftbuttons_F, text='>')
-        self.shiftsingleright_B.grid(row=0, column=0)
+        self.shiftsingleright_B.grid(row=0, column=0, sticky=EW, padx=5, pady=5)
+        
         # single left shift button
         self.shiftsingleleft_B = Button(shiftbuttons_F, text='<')
-        self.shiftsingleleft_B.grid(row=5, column=0)
+        self.shiftsingleleft_B.grid(row=5, column=0, sticky=EW, padx=5, pady=5)
 
         # shift all right button
         self.shiftallright_B = Button(shiftbuttons_F, text='>>')
-        self.shiftallright_B.grid(row=10, column=0)
+        self.shiftallright_B.grid(row=10, column=0, padx=5, pady=5)
 
         # shift all left button
         self.shiftallleft_B = Button(shiftbuttons_F, text='<<')
-        self.shiftallleft_B.grid(row=15, column=0)
+        self.shiftallleft_B.grid(row=15, column=0, padx=5, pady=5)
 
 # -------------------------------------------------------------------------------------
         usercardlist_F = Frame(master, bg='blue')
-        usercardlist_F.grid(row=0, column=10)
+        usercardlist_F.grid(row=0, column=10, padx=10, pady=10)
 
         # User deck title label
         self.userdeckname_var = StringVar()
@@ -126,8 +132,9 @@ class MyGui:
         # User deck card list listbox
         self.usercardlist_LB = Listbox(usercardlist_F)
         self.usercardlist_LB.grid(row=5, column=0, columnspan=10, sticky=NSEW)
+        self.usercardlist_LB.config(height=30, font=self.cardlist_font)
         self.usercardlist_LB.bind("<<ListboxSelect>>", lambda event, self=self, obj=self.usercardlist_LB: self.updateselectedcarddata(event, obj))
-        self.usercardlist_LB.config(height=27, font=self.cardlist_font)
+        
 
         # User card list scrollbar
         self.usercardlist_SB = Scrollbar(usercardlist_F, orient=VERTICAL)
@@ -137,15 +144,16 @@ class MyGui:
 
         # 'Load Deck' button
         self.loaduserdeck_B = Button(usercardlist_F, text='Load', command=self.loaddeck)
-        self.loaduserdeck_B.grid(row=10, column=0)
+        self.loaduserdeck_B.grid(row=10, column=0, sticky=E, padx=30)
 
         # 'Save Deck' button
         self.saveuserdeck_B = Button(usercardlist_F, text='Save', command=self.loaddeck)
-        self.saveuserdeck_B.grid(row=10, column=5)
+        self.saveuserdeck_B.grid(row=10, column=5, sticky=E)
+        
 
 # -------------------------------------------------------------------------------------
         carddetail_F = Frame(master, bg='red')
-        carddetail_F.grid(row=0, column=15)
+        carddetail_F.grid(row=0, column=15, padx=10, pady=10)
 
         # Card title label
         self.cardname_var = StringVar()
@@ -355,7 +363,7 @@ class MyGui:
 def main():
     root = Tk()
     root.title("PyGuiTest")
-    root.geometry("750x650")
+    root.geometry("800x650")
     #root.resizable(width=FALSE, height=FALSE)
     b = MyGui(root)  # create class, passing in root (which is called master in the class)
     root.mainloop()
